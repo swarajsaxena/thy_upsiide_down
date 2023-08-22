@@ -9,11 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        mutedBlack: 'hsl(216, 20%, 10%)',
+        mutedBlack: 'hsl(216, 20%, 5%)',
         mutedWhite: 'hsl(55, 100%, 98%)',
+        accent: '#00ff6a',
       },
       fontFamily: {
         jetBrain: ['var(--font-jetbrains)'],
+      },
+      boxShadow: {
+        inner: 'inset 0 0 10px #000',
       },
     },
   },

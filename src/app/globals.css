@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scrollbar-none {
+  scrollbar-width: none !important;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.eye {
+  animation: flip 5s ease infinite forwards;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
