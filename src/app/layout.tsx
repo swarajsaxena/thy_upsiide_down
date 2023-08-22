@@ -1,8 +1,15 @@
+import BottomBar from '@/components/BottomBar'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const jetBrains_mono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +22,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body
+        className={`${inter.className} ${jetBrains_mono.variable} flex max-w-[100vw] flex-col justify-between max-h-screen h-screen w-screen overflow-hidden bg-black text-mutedWhite`}
+      >
+        {children}
+        <BottomBar />
+      </body>
     </html>
   )
 }

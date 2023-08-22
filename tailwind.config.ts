@@ -8,10 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        mutedBlack: 'hsl(216, 20%, 10%)',
+        mutedWhite: 'hsl(55, 100%, 98%)',
+      },
+      fontFamily: {
+        jetBrain: ['var(--font-jetbrains)'],
       },
     },
   },
