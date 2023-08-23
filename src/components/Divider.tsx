@@ -20,13 +20,13 @@ const Divider = ({
         orientation === 'horizontal' ? 'flex-row' : 'flex-col'
       }`}
     >
-      {icons && <FiPlus />}
+      {icons && <FiPlus className='text-accent' />}
       <div
         className={`bg-mutedWhite/20 ${
           orientation === 'horizontal' ? 'w-full h-[1px]' : 'w-[1px] h-full'
         }`}
       />
-      {icons && <FiPlus />}
+      {icons && <FiPlus className='text-accent' />}
     </motion.div>
   )
 }

@@ -4,19 +4,23 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { FiArrowUpRight } from 'react-icons/fi'
 import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
-const NextLink = ({
+const NavLink = ({
   path = '',
   label = 'link',
 }: {
-  path: string
-  label: string
+  path?: string
+  label?: string
 }) => {
   const [active, setActive] = useState(false)
+  const pathname = usePathname()
   return (
     <Link
       href={path}
-      className='flex text-base font-light text-accent uppercase font-jetBrain'
+      className={`flex text-base hover:text-accent transition-all uppercase font-jetBrain font-normal ${
+        path === pathname ? 'text-accent' : ''
+      }`}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
     >
@@ -33,4 +37,4 @@ const NextLink = ({
   )
 }
 
-export default NextLink
+export default NavLink

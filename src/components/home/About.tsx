@@ -3,6 +3,7 @@
 import React from 'react'
 import Divider from '../Divider'
 import { motion } from 'framer-motion'
+import NextLink from '../NextLink'
 
 const About = () => {
   return (
@@ -10,10 +11,16 @@ const About = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5 }}
-      className='relative flex flex-col items-stretch flex-1 gap-2 md:px-4 overflow-hidden '
+      className='relative flex flex-col items-stretch flex-[1.2] gap-2 md:px-4 overflow-hidden '
     >
-      <div className='font-bold uppercase text-xl opacity-50'>about us</div>
-      <Divider />
+      <div className='text-xl flex justify-between items-end w-full '>
+        <div className='font-bold opacity-50 uppercase'>About Us</div>
+        <NextLink
+          path='/about -us'
+          label='Read More'
+        />
+      </div>
+      <Divider icons={false} />
       <span className='absolute hidden md:flex bottom-0 h-20 w-full right-0 text-sm text-mutedWhite bg-gradient-to-t from-mutedBlack to-transparent to px-2 py-[0.25rem]  items-center gap-2 z-10' />
       <div className='relative flex flex-col flex-grow gap-6 md:pb-10 h-max overflow-y-scroll text-xl font-light scrollbar-none'>
         <p className='italic text-white'>

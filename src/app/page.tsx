@@ -3,8 +3,10 @@ import MainWrapper from '@/components/MainWrapper'
 import About from '@/components/home/About'
 import Form from '@/components/home/Form'
 import Header from '@/components/home/Header'
+import MiddleImage from '@/components/home/MiddleImage'
 import Projects from '@/components/home/Projects'
 import Services from '@/components/home/Services'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -18,7 +20,13 @@ export default function Home() {
             orientation='vertical'
             icons={false}
           />
-          <div className='flex flex-col flex-1 gap-6'>
+          {/* <Form /> */}
+          <MiddleImage />
+          <Divider
+            orientation='vertical'
+            icons={false}
+          />
+          <div className='flex flex-col flex-[1.2] gap-6'>
             <Projects />
             <Divider
               orientation='horizontal'
@@ -26,11 +34,6 @@ export default function Home() {
             />
             <Services />
           </div>
-          <Divider
-            orientation='vertical'
-            icons={false}
-          />
-          <Form />
         </div>
       </div>
     </MainWrapper>

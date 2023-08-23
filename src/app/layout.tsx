@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import Cursor from '@/components/Cursor'
+import TransitionWrapper from '@/components/TransitionWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,12 +25,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body
-        className={`${inter.className} ${jetBrains_mono.variable} relative flex max-w-[100vw] flex-col justify-between max-h-screen h-screen w-screen md:overflow-y-hidden overflow-x-hidden bg-mutedBlack text-mutedWhite select-none cursor-default`}
-      >
-        {children}
-        <BottomBar />
-        <Cursor />
+      <body className={`${inter.className} ${jetBrains_mono.variable}`}>
+        <TransitionWrapper>
+          {children}
+          <BottomBar />
+          <Cursor />
+        </TransitionWrapper>
       </body>
     </html>
   )
