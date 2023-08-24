@@ -36,8 +36,10 @@ const page = () => {
           type: 'imgTwoCol',
           src: ['/projects/bbb/bbb_2.png', '/projects/bbb/bbb_3.png'],
         },
-        { type: 'imgOneCol', src: ['/projects/bbb/bbb_4.png'] },
-        { type: 'imgOneCol', src: ['/projects/bbb/bbb_5.png'] },
+        {
+          type: 'imgTwoCol',
+          src: ['/projects/bbb/bbb_4.png', '/projects/bbb/bbb_5.png'],
+        },
       ],
     },
     {
@@ -67,13 +69,18 @@ const page = () => {
   const [activeProject, setActivePorject] = useState<ProjectsI>(projects[0])
 
   return (
-    <div className='mx-4 mb-0 flex-grow flex md:overflow-hidden'>
-      <div className='hidden xl:flex flex-[0.5] flex-col px-4 gap-2'>
+    <div className='mx-4 mb-0 flex-grow flex md:overflow-y-hidden'>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.1 }}
+        className='hidden xl:flex flex-[0.5] flex-col px-4 gap-2'
+      >
         <div className='font-bold opacity-50 uppercase text-xl'>
           Trust The Process
         </div>
         <Divider icons={false} />
-      </div>
+      </motion.div>
       <Divider
         icons={false}
         orientation='vertical'

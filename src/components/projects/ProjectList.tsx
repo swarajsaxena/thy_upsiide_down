@@ -12,13 +12,21 @@ export default function ProjectList({
   id: any
 }) {
   return (
-    <div className='flex-[0.5] flex px-4 gap-2 flex-col'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.2 }}
+      className='flex-[0.5] flex px-4 gap-2 flex-col'
+    >
       <div className='font-bold opacity-50 uppercase text-xl'>Projects</div>
       <Divider icons={false} />
       <div className='flex flex-col gap-4 pt-2'>
         {projects.map((project, index) => (
           <React.Fragment key={index}>
-            <div
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.2 + 0.2 }}
               className='flex gap-2 relative group cursor-pointer'
               onClick={() => setActivePorject(project)}
             >
@@ -50,11 +58,11 @@ export default function ProjectList({
                   {project.customerName}
                 </span>
               </div>
-            </div>
+            </motion.div>
             {index + 1 < projects.length && <Divider icons={false} />}
           </React.Fragment>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
