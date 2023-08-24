@@ -3,8 +3,6 @@
 import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FiChevronRight } from 'react-icons/fi'
-import Link from 'next/link'
 import NextLink from '../NextLink'
 
 const Projects = () => {
