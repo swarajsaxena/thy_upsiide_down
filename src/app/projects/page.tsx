@@ -1,16 +1,22 @@
+'use client'
+
+import Divider from '@/components/Divider'
 import MainWrapper from '@/components/MainWrapper'
-import React from 'react'
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import ProjectList from '@/components/projects/ProjectList'
+import ProjectShowcase from '@/components/projects/ProjectShowcase'
 
 export interface ProjectsI {
   title: string
   companyName: string
   customerName: string
   id: string
-  contents: Content[]
+  images: image[]
 }
 
-export interface Content {
-  type: 'img-one-col' | 'img-two-col' | 'text' | 'review'
+export interface image {
+  type: 'imgOneCol' | 'imgTwoCol'
   review?: string
   stars?: number
   src?: string[]
@@ -20,54 +26,69 @@ export interface Content {
 const page = () => {
   const projects: ProjectsI[] = [
     {
-      title: 'Web design and dev',
-      companyName: 'thyupsiidedown',
-      customerName: 'swaraj',
-      id: 'ourOW',
-      contents: [
-        { type: 'review', review: 'owuegWRPGHwrpgh', stars: 5 },
-        { type: 'img-one-col', src: ['aoeuhqoeughqou'] },
-        { type: 'img-two-col', src: ['oeuwboqeug', 'oqeugboqug'] },
-        { type: 'text', text: 'owuegWRPGHwrpgh' },
-        { type: 'img-one-col', src: ['aoeuhqoeughqou'] },
-        { type: 'text', text: 'owuegWRPGHwrpgh' },
-        { type: 'text', text: 'owuegWRPGHwrpgh' },
-        { type: 'img-two-col', src: ['oeuwboqeug', 'oqeugboqug'] },
+      title: 'Web design and development',
+      companyName: 'Bewitched By Bhavyaa',
+      customerName: 'Bhavyaa Kumar',
+      id: 'bbb',
+      images: [
+        { type: 'imgOneCol', src: ['/projects/bbb/bbb_1.png'] },
+        {
+          type: 'imgTwoCol',
+          src: ['/projects/bbb/bbb_2.png', '/projects/bbb/bbb_3.png'],
+        },
+        { type: 'imgOneCol', src: ['/projects/bbb/bbb_4.png'] },
+        { type: 'imgOneCol', src: ['/projects/bbb/bbb_5.png'] },
+      ],
+    },
+    {
+      title: 'Web design and development',
+      companyName: 'Utilities Save',
+      customerName: 'someone',
+      id: 'uti',
+      images: [
+        {
+          type: 'imgTwoCol',
+          src: ['/projects/bbb/bbb_2.png', '/projects/bbb/bbb_3.png'],
+        },
+      ],
+    },
+    {
+      title: 'Web design and development',
+      companyName: 'Srimitra India',
+      customerName: 'Someone',
+      id: 'sri',
+      images: [
+        { type: 'imgOneCol', src: ['/projects/bbb/bbb_4.png'] },
+        { type: 'imgOneCol', src: ['/projects/bbb/bbb_5.png'] },
       ],
     },
   ]
 
-  return (
-    <MainWrapper>
-      <div className='flex flex-col justify-center items-start gap-2 font-bold font-jetBrain m-4 mb-0 rounded-lg h-full'>
-        {projects.map((project) => {
-          return project.contents.map((content, index) => {
-            switch (content.type) {
-              case 'img-one-col':
-                return <OneColumnImage src={content.src} />
-                break
-              case 'img-two-col':
-                return <TwoColumnImage src={content.src} />
-                break
-              case 'review':
-                return (
-                  <Review
-                    review={content.review}
-                    stars={content.stars}
-                  />
-                )
-                break
-              case 'text':
-                return <Text text={content.text} />
-                break
+  const [activeProject, setActivePorject] = useState<ProjectsI>(projects[0])
 
-              default:
-                break
-            }
-          })
-        })}
+  return (
+    <div className='mx-4 mb-0 flex-grow flex md:overflow-hidden'>
+      <div className='hidden xl:flex flex-[0.5] flex-col px-4 gap-2'>
+        <div className='font-bold opacity-50 uppercase text-xl'>
+          Trust The Process
+        </div>
+        <Divider icons={false} />
       </div>
-    </MainWrapper>
+      <Divider
+        icons={false}
+        orientation='vertical'
+      />
+      <ProjectList
+        projects={projects}
+        id={activeProject.id}
+        setActivePorject={setActivePorject}
+      />
+      <Divider
+        icons={false}
+        orientation='vertical'
+      />
+      <ProjectShowcase project={activeProject}></ProjectShowcase>
+    </div>
   )
 }
 
@@ -88,14 +109,6 @@ const Review = ({
 
 const Text = ({ text }: { text: string | undefined }) => {
   return <div>{text}</div>
-}
-
-const OneColumnImage = ({ src }: { src: string[] | undefined }) => {
-  return <div>One Column Image</div>
-}
-
-const TwoColumnImage = ({ src }: { src: string[] | undefined }) => {
-  return <div>Two Column Image</div>
 }
 
 export default page
