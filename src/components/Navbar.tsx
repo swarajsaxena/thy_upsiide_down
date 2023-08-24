@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import React, { useState } from 'react'
 import Divider from './Divider'
 import { motion } from 'framer-motion'
 import NavLink from './NavLinks'
@@ -14,6 +14,8 @@ const NavBar = () => {
   if (pathname === '/') {
     return null
   }
+
+  const [formActive, setFormActive] = useState(false)
 
   return (
     <main className='flex w-full flex-col p-4 items-stretch justify-between'>
@@ -67,10 +69,16 @@ const NavBar = () => {
           className='max-h-[40px]'
           alt='logo'
         />
-        <div className='border-2 border-accent font-jetBrain font-bold px-3 py-2 text-xl rounded-xl ml-auto hover:bg-accent hover:text-mutedBlack transition-all uppercase'>
+        <button
+          onClick={() => setFormActive(true)}
+          className='border border-accent font-jetBrain font-bold px-3 py-2 text-lg rounded-lg ml-auto hover:bg-accent hover:text-mutedBlack transition-all capitalize'
+        >
           Contact
-        </div>
-        {/* <Form /> */}
+        </button>
+        <Form
+          formActive={formActive}
+          setFormActive={setFormActive}
+        />
       </div>
       <Divider />
     </main>
