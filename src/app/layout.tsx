@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import Cursor from '@/components/Cursor'
 import TransitionWrapper from '@/components/TransitionWrapper'
+import NavBar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${inter.className} ${jetBrains_mono.variable}`}>
         <TransitionWrapper>
+          <NavBar />
           {children}
           <BottomBar />
           <Cursor />

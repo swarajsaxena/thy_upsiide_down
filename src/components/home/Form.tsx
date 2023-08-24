@@ -10,44 +10,45 @@ const Form = () => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.7 }}
-    className='relative flex flex-col items-stretch flex-1 gap-4 md:px-4 overflow-hidden'
+    className='flex flex-col items-stretch flex-1 gap-4 md:p-4 absolute z-50 right-0 top-0 h-full max-w-screen-sm w-full bg-mutedBlack border-l border-mutedWhite/20 overflow-hidden overflow-y-scroll scrollbar-none'
   >
-    <div className='text-xl flex justify-between items-end w-full '>
-      <div className='font-bold opacity-50 uppercase'>Ping Us</div>
-      <NextLink
-        path='/contact-us'
-        label='enquiry'
-      />
+    <div className='flex flex-col gap-2 justify-start items-stretch w-full '>
+      <div className='text-xl font-bold text-accent uppercase'>Ping Us</div>
+      <Divider />
+      <div className='font-jetBrain opacity-70'>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
+        laboriosam incidunt explicabo ipsam corporis iste dicta sit, voluptatum
+        mollitia eum doloremque laborum alias deleniti sint, debitis ratione
+        quae animi recusandae?
+      </div>
     </div>
-    <span className='absolute bottom-0 h-20 w-full right-0 text-sm text-mutedWhite bg-gradient-to-t from-mutedBlack to-transparent to px-2 py-[0.25rem] flex items-center gap-2 z-10' />
-    <Divider icons={false} />
-    <div className='flex flex-col justify-between flex-1 gap-6 pb-10 text-base overflow-y-scroll scrollbar-none text-mutedBlack font-jetBrain'>
+    <div className='flex flex-col justify-start gap-6 pb-10 text-base text-mutedWhite font-jetBrain'>
       <input
         type='text'
         placeholder='Name'
-        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite'
+        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite/10'
       />
 
       <input
         type='text'
         placeholder='Number'
-        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite'
+        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite/10'
       />
 
       <input
         type='text'
         placeholder='Email'
-        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite'
+        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite/10'
       />
 
       <input
         type='text'
         placeholder='Company Name'
-        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite'
+        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite/10'
       />
       <textarea
         placeholder='Your Thoughts..'
-        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite min-h-[75px]'
+        className='h-full px-4 py-2 rounded-md outline-none bg-mutedWhite/10 min-h-[75px]'
         rows={4}
       />
       <button
