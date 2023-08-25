@@ -94,37 +94,39 @@ export default function ProjectList({
                 </div>
               </div>
               <AnimatePresence>
-                {project.id === activeProject.id && accordian === true && (
-                  <motion.div
-                    initial={{ height: 0 }}
-                    animate={{ height: 'max-content' }}
-                    exit={{ height: 0 }}
-                    transition={{
-                      duration: 0.5,
-                      ease: cubicBezier(0.36, 0.88, 0.36, 0.88),
-                    }}
-                    className='md:hidden py-2 flex flex-col gap-4 h-max overflow-y-hidden'
-                  >
-                    <div className='relative w-full aspect-[16/9] rounded-lg overflow-hidden'>
-                      <Image
-                        src={activeProject?.images[0]?.src?.[0] || ''}
-                        alt={activeProject?.images[0]?.src?.[0] || ''}
-                        fill
-                        className='object-cover'
-                      />
-                    </div>
-                    <div>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Cumque voluptates sed nisi quo soluta rem. Illum ad,
-                      deserunt ipsa corrupti, delectus, reiciendis nesciunt quam
-                      placeat quae dolores molestiae officia iusto quos?
-                      Pariatur assumenda facere debitis iusto dicta, nemo
-                      tempora dolores necessitatibus molestias! Deleniti,
-                      asperiores velit repudiandae libero beatae dicta
-                      laudantium aut fugiat?
-                    </div>
-                  </motion.div>
-                )}
+                <div className='md:hidden'>
+                  {project.id === activeProject.id && accordian === true && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: 'max-content' }}
+                      exit={{ height: 0 }}
+                      transition={{
+                        duration: 0.5,
+                        ease: cubicBezier(0.36, 0.88, 0.36, 0.88),
+                      }}
+                      className='md:hidden py-2 flex flex-col gap-4 h-max overflow-y-hidden'
+                    >
+                      <div className='relative w-full aspect-[16/9] rounded-lg overflow-hidden'>
+                        <Image
+                          src={activeProject?.images[0]?.src?.[0] || ''}
+                          alt={activeProject?.images[0]?.src?.[0] || ''}
+                          fill
+                          className='object-cover'
+                        />
+                      </div>
+                      <div>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Cumque voluptates sed nisi quo soluta rem. Illum
+                        ad, deserunt ipsa corrupti, delectus, reiciendis
+                        nesciunt quam placeat quae dolores molestiae officia
+                        iusto quos? Pariatur assumenda facere debitis iusto
+                        dicta, nemo tempora dolores necessitatibus molestias!
+                        Deleniti, asperiores velit repudiandae libero beatae
+                        dicta laudantium aut fugiat?
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
               </AnimatePresence>
             </motion.div>
             {index + 1 < projects.length && <Divider icons={false} />}
