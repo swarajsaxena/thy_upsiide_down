@@ -111,18 +111,11 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
               )
           }
         })}
-        <div>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, ab.
-          Atque illo aspernatur, recusandae, iusto odio eveniet rem asperiores
-          non ut libero mollitia tempora maxime ipsam nisi nam deleniti dolore.
-          Iure doloribus veniam blanditiis dolores? Ipsum dolore, incidunt nemo
-          natus eos quaerat aliquam maxime provident consequuntur earum dolores
-          temporibus laboriosam soluta sed error vitae minima repudiandae?
-          Placeat voluptates sed unde odit! Laborum quaerat sit aut quis quo
-          harum nihil velit repellat dolorem eaque? Molestiae molestias autem
-          itaque. Quisquam quo dolores animi at saepe! Aspernatur iste minus,
-          amet a obcaecati ratione quam! Dolorem, minima deserunt. Ex reiciendis
-          dolore et voluptates beatae.
+        <div className='flex flex-col gap-2'>
+          <div className='text-lg font-bold'>
+            Review: {project.customerName} ⭐⭐⭐⭐⭐
+          </div>
+          <div>{project.review}</div>
         </div>
       </div>
     </div>

@@ -33,7 +33,7 @@ export default function ProjectList({
     >
       <div className='font-bold opacity-50 uppercase text-xl'>Projects</div>
       <Divider icons={false} />
-      <div className='flex flex-col gap-4 pt-2 overflow-y-scroll scrollbar-none'>
+      <div className='flex flex-col gap-4 pt-2 overflow-y-scroll scrollbar-none mt-2'>
         {projects.map((project, index) => (
           <React.Fragment key={index}>
             <motion.div

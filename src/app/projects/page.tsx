@@ -3,14 +3,15 @@
 import Divider from '@/components/Divider'
 import MainWrapper from '@/components/MainWrapper'
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
 import ProjectList from '@/components/projects/ProjectList'
 import ProjectShowcase from '@/components/projects/ProjectShowcase'
+import TrustTheProcess from '@/components/projects/TrustTheProcess'
 
 export interface ProjectsI {
   title: string
   companyName: string
   customerName: string
+  review: string
   id: string
   images: image[]
 }
@@ -26,6 +27,8 @@ const page = () => {
       title: 'Web design and development',
       companyName: 'Bewitched By Bhavyaa',
       customerName: 'Bhavyaa Kumar',
+      review:
+        'Could it have gotten any better? I mean so many hours of brainstorming and clashes you finally made this beautiful website🌻. Thank you so much! I love the colors. I love the illustrations that you have added. So APT! Gonna bring in more tasks for you, haha. You are on my list now!✅',
       id: 'bbb',
       images: [
         { type: 'imgOneCol', src: ['/projects/bbb/bbb_1.png'] },
@@ -43,6 +46,8 @@ const page = () => {
       title: 'Web design and development',
       companyName: 'Utilities Save',
       customerName: 'someone',
+      review:
+        'Revolutionized our online experience! The energy-saving solutions are now beautifully showcased on the revamped website. The new look and feel are not only visually appealing but also user-friendly, making it easier for users to explore the new products. A seamless blend of design and functionality!',
       id: 'uti',
       images: [
         {
@@ -55,6 +60,8 @@ const page = () => {
       title: 'Web design and development',
       companyName: 'Srimitra India',
       customerName: 'Someone',
+      review:
+        'Absolutely thrilled with the end result! Our collaborative effort has yielded a stunning website for the orphan portal. The captivating colors and exquisite illustrations are spot on. Kudos to the team for their dedication and creativity. Looking forward to entrusting more projects. A definite asset on our list!',
       id: 'sri',
       images: [
         { type: 'imgOneCol', src: ['/projects/bbb/bbb_4.png'] },
@@ -67,17 +74,7 @@ const page = () => {
 
   return (
     <div className='mx-4 mb-0 flex-grow flex overflow-y-hidden'>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.1 }}
-        className='hidden xl:flex flex-[0.5] flex-col px-4 gap-2'
-      >
-        <div className='font-bold opacity-50 uppercase text-xl'>
-          Trust The Process
-        </div>
-        <Divider icons={false} />
-      </motion.div>
+      <TrustTheProcess />
       <Divider
         icons={false}
         orientation='vertical'
