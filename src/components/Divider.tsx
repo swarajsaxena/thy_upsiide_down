@@ -17,7 +17,7 @@ const Divider = ({
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
       className={`text-mutedWhite/50 text-2xl items-center flex gap-2 justify-between  ${
-        orientation === 'horizontal' ? 'flex-row' : 'flex-col'
+        orientation === 'horizontal' ? 'flex-row' : 'flex-col hidden md:flex'
       }`}
     >
       {icons && <FiPlus className='text-accent' />}

@@ -17,10 +17,7 @@ export interface ProjectsI {
 
 export interface image {
   type: 'imgOneCol' | 'imgTwoCol'
-  review?: string
-  stars?: number
   src?: string[]
-  text?: string
 }
 
 const page = () => {
@@ -69,7 +66,7 @@ const page = () => {
   const [activeProject, setActivePorject] = useState<ProjectsI>(projects[0])
 
   return (
-    <div className='mx-4 mb-0 flex-grow flex md:overflow-y-hidden'>
+    <div className='mx-4 mb-0 flex-grow flex overflow-y-hidden'>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -87,6 +84,7 @@ const page = () => {
       />
       <ProjectList
         projects={projects}
+        activeProject={activeProject}
         id={activeProject.id}
         setActivePorject={setActivePorject}
       />

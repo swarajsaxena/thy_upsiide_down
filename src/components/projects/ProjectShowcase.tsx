@@ -68,7 +68,7 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
   }
 
   return (
-    <div className='flex-1 flex px-4 gap-2 flex-col flex-grow-1'>
+    <div className='flex-1 hidden md:flex px-4 gap-2 flex-col flex-grow-1'>
       <PhotoViewer
         activePhoto={activePhoto}
         activeViewer={activeViewer}
