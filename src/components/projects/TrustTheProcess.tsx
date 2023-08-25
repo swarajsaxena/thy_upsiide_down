@@ -36,17 +36,15 @@ const TrustTheProcess = () => {
         Trust The Process
       </div>
       <Divider icons={false} />
-      <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-4 mt-2'>
         {services.map((service, index) => (
           <div
             key={index}
-            className='flex gap-1'
+            className='flex gap-2'
           >
-            <span className='text-accent text-xl rounded-full'>
-              {index + 1}.
-            </span>
+            <span className='text-xl text-accent'>{index + 1}</span>
             <div className='flex flex-col gap-1'>
-              <h2 className='text-xl font-bold'>{service.title}</h2>
+              <h2 className='font-bold uppercase text-xl'>{service.title}</h2>
               <p className='opacity-80'>{service.description}</p>
             </div>
           </div>
