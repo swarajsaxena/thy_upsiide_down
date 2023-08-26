@@ -16,6 +16,11 @@ export interface ServicesI {
 const page = () => {
   const services: ServicesI[] = [
     {
+      title: 'SaaS Product Development',
+      description:
+        "At Thy Upsiide Down, we specialize in turning your software dreams into reality with our top-tier SaaS product development service. Our mission is to empower your business with cutting-edge, cloud-based software solutions that solve real-world problems, boost efficiency, and drive growth. With a proven track record of creating successful SaaS products, we're your partner in innovation.",
+    },
+    {
       title: 'Professional Business Website ',
       description:
         'At Thy Upsiide Down, we specialize in crafting tailor-made Business Websites that serve as powerful online assets for your company. Our mission is to elevate your digital presence, strengthen your brand identity, and drive growth through cutting-edge web design and development. With a focus on user experience, functionality, and aesthetics, we bring your vision to life in the digital world.',
@@ -35,18 +40,14 @@ const page = () => {
       description:
         'At Thy Upsiide Down, we understand that your wedding is a momentous occasion filled with cherished memories. Our Digital Wedding Gallery Creation service is designed to transform those memories into a timeless, online treasure. We specialize in crafting beautifully curated digital galleries that encapsulate the magic, love, and joy of your special day.',
     },
-    {
-      title: 'SaaS Product Development',
-      description:
-        "At Thy Upsiide Down, we specialize in turning your software dreams into reality with our top-tier SaaS product development service. Our mission is to empower your business with cutting-edge, cloud-based software solutions that solve real-world problems, boost efficiency, and drive growth. With a proven track record of creating successful SaaS products, we're your partner in innovation.",
-    },
+
     {
       title: 'Website Revamp and Modernization',
       description:
         "At Thy Upsiide Down, we understand that your website is the online face of your business. But as the digital landscape evolves, so should your web presence. That's where our Website Revamp and Modernization service comes in. We breathe new life into your existing website, transforming it into a cutting-edge platform that not only meets modern web standards but also captivates your audience and drives results.",
     },
   ]
-  // const [activeProject, setActivePorject] = useState<ServicesI>(services[0])
+  const [activeService, setActiveService] = useState<ServicesI>(services[0])
   return (
     <>
       <div className='py-5 w-[100vw] px-10 flex flex-col justify-center'>
@@ -60,7 +61,11 @@ const page = () => {
           icons={false}
           orientation='vertical'
         />
-        <ServiceListing services={services} />
+        <ServiceListing
+          services={services}
+          activeService={activeService}
+          setActiveService={setActiveService}
+        />
       </div>
     </>
   )

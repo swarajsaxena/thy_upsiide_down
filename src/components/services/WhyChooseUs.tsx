@@ -40,7 +40,7 @@ const WhyChooseUs = () => {
         Why Choose Us
       </div>
       <Divider icons={false} />
-      <div className='flex flex-col gap-4 mt-2'>
+      <div className='flex flex-col gap-4 mt-2 overflow-scroll scrollbar-none '>
         {services.map((service, index) => (
           <div
             key={index}

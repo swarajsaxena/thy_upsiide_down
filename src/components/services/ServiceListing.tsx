@@ -3,7 +3,15 @@ import { motion } from 'framer-motion'
 import Divider from '../Divider'
 import ServiceCard from './ServiceCard'
 import { ServicesI } from '@/app/services/page'
-const ServiceListing = ({ services }: { services: ServicesI[] }) => {
+const ServiceListing = ({
+  services,
+  activeService,
+  setActiveService,
+}: {
+  services: ServicesI[]
+  activeService: ServicesI
+  setActiveService: (arg0: any) => void
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -15,10 +23,17 @@ const ServiceListing = ({ services }: { services: ServicesI[] }) => {
       <Divider icons={false} />
       <div className='py-5 overflow-scroll scrollbar-none'>
         {services.map((elem, index) => (
-          <ServiceCard
-            element={elem}
-            key={index}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: (index + 1) * 0.15 }}
+          >
+            <ServiceCard
+              element={elem}
+              key={index}
+            />
+            {index === services.length - 1 ? <></> : <Divider icons={false} />}
+          </motion.div>
         ))}
       </div>
     </motion.div>
