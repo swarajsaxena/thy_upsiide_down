@@ -33,7 +33,7 @@ const Services = () => {
       <div className='flex flex-col justify-between flex-1 gap-2 overflow-y-scroll text-xl font-bold font-jetBrain scrollbar-none'>
         {services.map((ser, index) => (
           <React.Fragment key={index}>
-            <div className='flex gap-2 items-center'>
+            <div className='flex gap-2 items-center uppercase'>
               <FiChevronRight className='text-accent' />
               <span>{ser}</span>
             </div>
