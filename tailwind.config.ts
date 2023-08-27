@@ -9,10 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        mutedBlack: 'hsl(216, 18%, 16%)',
-        mutedWhite: 'hsl(0, 0%, 93%)',
-        mutedWhiteFade: 'hsl(34, 45%, 85%)',
-        accent: 'hsl(183, 100%, 40%)',
+        mutedBlack: 'hsl(216, 20%, 7%)',
+        mutedWhite: 'hsl(216, 100%, 98%)',
+        accent: 'hsl(35, 100%, 60%)',
       },
       fontFamily: {
         jetBrain: ['var(--font-jetbrains)'],
