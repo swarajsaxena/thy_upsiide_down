@@ -19,6 +19,8 @@ export default function ProjectList({
   const [accordian, setAccordian] = useState(true)
 
   const changeAccordian = (id: string) => {
+    if (accordian === false) setAccordian(true)
+
     if (id === activeProject.id) {
       setAccordian(!accordian)
     }
@@ -33,7 +35,7 @@ export default function ProjectList({
     >
       <div className='font-bold opacity-50 uppercase text-xl'>Projects</div>
       <Divider icons={false} />
-      <div className='flex flex-col gap-4 pt-2 overflow-y-scroll scrollbar-none mt-2'>
+      <div className='flex flex-col gap-4 pt-2 md:overflow-y-scroll scrollbar-none mt-2'>
         {projects.map((project, index) => (
           <React.Fragment key={index}>
             <motion.div
@@ -114,15 +116,11 @@ export default function ProjectList({
                           className='object-cover'
                         />
                       </div>
-                      <div>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Cumque voluptates sed nisi quo soluta rem. Illum
-                        ad, deserunt ipsa corrupti, delectus, reiciendis
-                        nesciunt quam placeat quae dolores molestiae officia
-                        iusto quos? Pariatur assumenda facere debitis iusto
-                        dicta, nemo tempora dolores necessitatibus molestias!
-                        Deleniti, asperiores velit repudiandae libero beatae
-                        dicta laudantium aut fugiat?
+                      <div className='flex flex-col gap-2'>
+                        <div className='text-lg font-bold'>
+                          Review: {project.customerName} ⭐⭐⭐⭐⭐
+                        </div>
+                        <div>{project.review}</div>
                       </div>
                     </motion.div>
                   )}

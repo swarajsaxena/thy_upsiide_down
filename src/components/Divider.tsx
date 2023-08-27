@@ -8,11 +8,11 @@ import { twMerge } from 'tailwind-merge'
 const Divider = ({
   orientation = 'horizontal',
   icons = true,
-  customStyles = '',
+  className = '',
 }: {
   orientation?: 'vertical' | 'horizontal'
   icons?: boolean
-  customStyles?: string
+  className?: string
 }) => {
   return (
     <motion.div
@@ -22,7 +22,7 @@ const Divider = ({
       className={twMerge(
         'text-mutedWhite/50 text-2xl items-center flex gap-2 justify-between',
         orientation === 'horizontal' ? 'flex-row' : 'flex-col hidden md:flex',
-        customStyles
+        className
       )}
     >
       {icons && <FiPlus className='text-accent' />}

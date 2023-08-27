@@ -51,7 +51,7 @@ const TrustTheProcess = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.1 }}
-      className='hidden xl:flex flex-[0.5] flex-col px-4 gap-2'
+      className='flex-1 md:flex-[0.5] hidden xl:flex flex-col md:px-4 gap-2'
     >
       <div className='font-bold opacity-50 uppercase text-xl'>
         Trust The Process

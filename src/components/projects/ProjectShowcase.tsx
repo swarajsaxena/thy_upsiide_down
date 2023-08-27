@@ -5,15 +5,18 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { FiChevronsDown, FiPlus, FiPlusCircle, FiZoomIn } from 'react-icons/fi'
 import { useRef, useState } from 'react'
 import { useAwayClickListener } from '@/utils/useAwayClickListener'
+import { twMerge } from 'tailwind-merge'
 
 function PhotoViewer({
   activePhoto,
   activeViewer,
   setactiveViewer,
+  className = '',
 }: {
   activePhoto: string | null
   activeViewer: boolean
   setactiveViewer: (val: boolean) => void
+  className?: string
 }) {
   const ref = useRef(null)
   const handleAwayClick = () => {
@@ -27,12 +30,15 @@ function PhotoViewer({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
-          className='w-full h-full bg-mutedBlack/80 absolute top-0 right-0 z-50 flex items-center justify-center'
+          className={twMerge(
+            'w-full h-full bg-mutedBlack/80 absolute top-0 right-0 z-50 flex items-center justify-center',
+            className
+          )}
         >
           <div className='relative aspect-[16/9] w-[60%]'>
             <div
               style={{ textOrientation: 'mixed', writingMode: 'vertical-rl' }}
-              className='absolute top-0 -left-12 rotate-180'
+              className='absolute -top-12 right-0 rotate-180'
             >
               <div
                 className='p-2 text-mutedBlack bg-mutedWhite rounded-full'
@@ -73,6 +79,7 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
         activePhoto={activePhoto}
         activeViewer={activeViewer}
         setactiveViewer={setactiveViewer}
+        className='hidden md:flex'
       />
       <div className='flex justify-between'>
         <motion.div
@@ -134,7 +141,7 @@ const OneColumnImage = ({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4 }}
-      className='relative aspect-[16/9] cursor-pointer w-full rounded-lg overflow-hidden mb-4'
+      className='relative aspect-[16/9] group cursor-pointer w-full rounded-lg overflow-hidden mb-4'
       onClick={() => toggleState(src[0])}
     >
       <ZoomButton />
@@ -149,8 +156,12 @@ const OneColumnImage = ({
 }
 
 const ZoomButton = () => (
-  <div className='absolute right-2 bottom-2 bg-mutedBlack/50 text-white rounded-full text-xl z-10 p-3'>
-    <FiPlusCircle />
+  <div className='hidden md:block absolute right-4 group-hover:-rotate-45 transition-all bottom-4 text-xl z-10 p-1 text-accent'>
+    <div className='absolute border-accent rounded-[2px] w-2 h-2 top-0 left-0 border-l border-t' />
+    <div className='absolute border-accent rounded-[2px] w-2 h-2 top-0 right-0 border-r border-t' />
+    <div className='absolute border-accent rounded-[2px] w-2 h-2 bottom-0 left-0 border-l border-b' />
+    <div className='absolute border-accent rounded-[2px] w-2 h-2 bottom-0 right-0 border-r border-b' />
+    <FiPlus className='group-hover:rotate-45 transition-all' />
   </div>
 )
 

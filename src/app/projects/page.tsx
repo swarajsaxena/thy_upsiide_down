@@ -73,11 +73,12 @@ const page = () => {
   const [activeProject, setActivePorject] = useState<ProjectsI>(projects[0])
 
   return (
-    <div className='mx-4 mb-0 flex-grow flex overflow-y-hidden'>
+    <div className='mx-4 mb-0 flex-grow flex gap-4 overflow-y-hidden'>
       <TrustTheProcess />
       <Divider
         icons={false}
         orientation='vertical'
+        className='hidden md:hidden xl:flex'
       />
       <ProjectList
         projects={projects}
