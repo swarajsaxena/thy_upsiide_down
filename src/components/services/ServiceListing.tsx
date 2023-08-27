@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
 import Divider from '../Divider'
-import ServiceCard from './ServiceCard'
 import { ServicesI } from '@/app/services/page'
 const ServiceListing = ({
   services,
@@ -16,9 +15,10 @@ const ServiceListing = ({
   const [click, setclick] = useState(false)
 
   const changeAccordian = (title: string) => {
+    if (accordian === false) setAccordian(true)
     if (title === activeService.title) {
-      setAccordian(!accordian)
       setclick(!click)
+      setAccordian(!accordian)
     }
   }
 
@@ -27,68 +27,67 @@ const ServiceListing = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className='flex-1 xl:flex-[0.7] flex md:px-4 gap-2 flex-col '
+      className='flex-1 xl:flex-[0.7] flex md:px-4 gap-2 flex-col'
     >
       <div className='font-bold opacity-50 uppercase text-xl'>Services</div>
       <Divider icons={false} />
-      <div className='py-5 overflow-scroll scrollbar-none'>
-        {services.map((elem, index) => (
-          <motion.div
-            initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: (index + 1) * 0.15 }}
-          >
-            <div className=' px-4 pb-6 '>
-              <div
-                className={`p-[2px] ${
-                  elem.title === activeService.title &&
-                  click &&
-                  'bg-white/90 text-mutedBlack '
-                } relative group  overflow-hidden cursor-pointer hover:bg-white/90 hover:text-mutedBlack transition-all`}
-                onClick={() => {
-                  changeAccordian(elem.title)
-                  setActiveService(elem)
-                }}
-              >
-                <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[0px] transition-all  h-full bg-gradient-to-r  opacity-0 '></div>
-                <div className='p-10  px-16 relative z-50  pointer-events-none  transition-all flex flex-col justify-between gap-2'>
+      <div className='py-5 flex flex-col gap-4 overflow-scroll scrollbar-none'>
+        {services.map((service, index) => (
+          <React.Fragment key={index}>
+            <motion.div
+              initial={{ opacity: 0, y: -40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: (index + 1) * 0.15 }}
+              className={`${
+                service.title === activeService.title && accordian
+                  ? 'bg-mutedWhite text-mutedBlack'
+                  : 'hover:bg-mutedWhite/90 text-mutedWhite'
+              } rounded-md  hover:text-mutedBlack transition-all p-10  cursor-pointer`}
+              onClick={() => {
+                changeAccordian(service.title)
+                setActiveService(service)
+              }}
+            >
+              <div className={`relative group `}>
+                <div className='relative pointer-events-none  transition-all flex flex-col justify-between gap-2'>
                   <div className='font-bold text-2xl flex items-center justify-between w-full'>
-                    {elem.title}
+                    {service.title}
                   </div>
-
                   <div>
-                    {click &&
-                      !(elem.title === activeService.title) &&
-                      elem.description.substr(0, 250) + ' ... '}
-                    {!click && elem.description.substr(0, 250) + ' ... '}
-                    {!click && <span className=' font-bold '>Read More</span>}
-                    {click && !(elem.title === activeService.title) && (
-                      <span className=' font-bold '>Read More</span>
+                    <span
+                      className={
+                        service.title === activeService.title && accordian
+                          ? ''
+                          : 'text-ellipsis line-clamp-4 md:line-clamp-3 lg:line-clamp-2'
+                      }
+                    >
+                      {service.description}
+                    </span>
+                    {!(service.title === activeService.title && accordian) && (
+                      <span className='font-bold text-accent'>Read More</span>
                     )}
                   </div>
                 </div>
               </div>
               <AnimatePresence>
-                <div>
-                  {elem.title === activeService.title && accordian && (
-                    <motion.div
-                      initial={{ height: 0 }}
-                      animate={{ height: '50vh' }}
-                      exit={{ height: 0 }}
-                      transition={{
-                        duration: 0.5,
-                        ease: cubicBezier(0.36, 0.88, 0.36, 0.88),
-                      }}
-                      className=' pb-2 px-16 flex flex-col gap-4 overflow-y-hidden bg-white/90'
-                    >
-                      <div className='text-mutedBlack'>{elem.description}</div>
-                    </motion.div>
-                  )}
-                </div>
+                {service.title === activeService.title && accordian && (
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: '20vh' }}
+                    exit={{ height: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      ease: cubicBezier(0.36, 0.88, 0.36, 0.88),
+                    }}
+                    className=' pb-2 px-16 flex flex-col gap-4 overflow-y-hidden'
+                  >
+                    {/* <div className='text-mutedBlack'>{elem.description}</div> */}
+                  </motion.div>
+                )}
               </AnimatePresence>
-            </div>
+            </motion.div>
             {index + 1 < services.length && <Divider icons={false} />}
-          </motion.div>
+          </React.Fragment>
         ))}
       </div>
     </motion.div>
