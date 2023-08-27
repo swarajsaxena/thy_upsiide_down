@@ -16,7 +16,7 @@ const About = () => {
       <div className='text-xl flex justify-between items-end w-full '>
         <div className='font-bold opacity-50 uppercase'>About Us</div>
         <NextLink
-          path='/about -us'
+          path='/about-us'
           label='Read More'
         />
       </div>

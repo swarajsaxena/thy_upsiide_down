@@ -11,14 +11,14 @@ import Form from './home/Form'
 const NavBar = () => {
   const pathname = usePathname()
 
-  if (pathname === '/') {
+  if (pathname === '/' || pathname === '/about-us') {
     return null
   }
 
   const [formActive, setFormActive] = useState(false)
 
   return (
-    <main className='flex w-full flex-col p-4 items-stretch justify-between'>
+    <nav className='flex w-full flex-col p-4 items-stretch justify-between'>
       <div className='p-1 flex gap-2 items-center py-2'>
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
@@ -81,7 +81,7 @@ const NavBar = () => {
         />
       </div>
       <Divider />
-    </main>
+    </nav>
   )
 }
 

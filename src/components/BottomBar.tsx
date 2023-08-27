@@ -11,7 +11,7 @@ const BottomBar = () => {
   const pathname = usePathname()
 
   // Check if the current pathname is "/"
-  if (pathname === '/') {
+  if (pathname === '/' || pathname === '/about-us') {
     return null // Don't render anything when pathname is "/"
   }
 
@@ -39,7 +39,7 @@ const BottomBar = () => {
   ]
 
   return (
-    <main className='flex w-full flex-col p-4 items-stretch justify-between'>
+    <footer className='flex w-full flex-col p-4 items-stretch justify-between'>
       <Divider />
       <div className='p-1 justify-around w-full flex gap-2 items-center py-2'>
         {navLinks.map((link, i) => {
@@ -69,7 +69,7 @@ const BottomBar = () => {
           </div>
         </div>
       </div>
-    </main>
+    </footer>
   )
 }
 
