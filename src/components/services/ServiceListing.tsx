@@ -13,6 +13,7 @@ const ServiceListing = ({
 }) => {
   const [accordian, setAccordian] = useState(false)
   const [click, setclick] = useState(false)
+  const [activeElement, setActiveElement] = useState<string | null>(null)
 
   const changeAccordian = (title: string) => {
     if (accordian === false) setAccordian(true)
@@ -20,7 +21,19 @@ const ServiceListing = ({
       setclick(!click)
       setAccordian(!accordian)
     }
+    if (!click) {
+      // Toggle accordion state (close)
+      setActiveElement(null)
+    } else {
+      // Open accordion and scroll to the element
+      setActiveElement(title)
+      const element = document.getElementById(`${title}`)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
   }
+  console.log(activeElement)
 
   return (
     <motion.div
@@ -35,9 +48,10 @@ const ServiceListing = ({
         {services.map((service, index) => (
           <React.Fragment key={index}>
             <motion.div
-              initial={{ opacity: 0, y: -40 }}
+              id={`${service.title}`}
+              initial={{ opacity: 0, y: -80 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index + 1) * 0.15 }}
+              transition={{ ease: 'easeInOut', delay: index * 0.5 }}
               className={`${
                 service.title === activeService.title && accordian
                   ? 'bg-mutedWhite text-mutedBlack'
