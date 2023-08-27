@@ -3,34 +3,38 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import NextLink from '@/components/NextLink'
 import Link from 'next/link'
-import {
-  FiArrowLeft,
-  FiArrowRight,
-  FiChevronLeft,
-  FiChevronRight,
-} from 'react-icons/fi'
+import { FiArrowRight, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import Divider from '@/components/Divider'
-import { services } from '../services/page'
 import { process } from '@/components/projects/TrustTheProcess'
 import { projects } from '../projects/page'
+import Menu from '@/components/aboutUs/Menu'
+import { services } from '../services/page'
 
 const page = () => {
   const [activeindex, setActiveIndex] = useState(0)
   return (
     <div className='flex flex-col items-center justify-start overflow-y-scroll scrollbar-none'>
       <div
-        className='w-full flex flex-col gap-4 pb-[20vh] items-center justify-center text-left'
+        className='w-full flex flex-col gap-20 pb-[20vh] items-center justify-center text-left'
         style={{ maxWidth: 'min(100%, 60vw)' }}
       >
-        <div className='max-w-[250px] w-full mr-auto aspect-[316/101] fixed top-4 left-4'>
-          <Image
-            src={'/logo/logo_full.svg'}
-            alt='logo_about.svg'
-            fill
-          />
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className='w-full fixed top-4 left-0 h-max flex justify-between px-4 items-start'
+        >
+          <div className='max-w-[250px] relative aspect-[316/101] w-full'>
+            <Image
+              src={'/logo/logo_full.svg'}
+              alt='logo_about.svg'
+              fill
+            />
+          </div>
+          <Menu />
+        </motion.div>
         <div className='text-8xl h-[100vh] flex justify-end items-end font-semibold pb-10'>
           <div className=''>
             {'We Integrate Strategy, Creativity And Experience To Build Brands.'
@@ -42,7 +46,7 @@ const page = () => {
                   animate={{
                     opacity: 1,
                     y: 0,
-                    transition: { delay: index * 0.03 },
+                    transition: { delay: (index + 1) * 0.03 },
                   }}
                   key={index}
                 >
@@ -59,7 +63,11 @@ const page = () => {
             </motion.span>
           </div>
         </div>
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
           className='relative w-full aspect-[10/6]'
           style={{ maxWidth: 'min(100%, 70vw)' }}
         >
@@ -69,7 +77,7 @@ const page = () => {
             fill
             className='object-cover'
           />
-        </div>
+        </motion.div>
         <div className='grid grid-cols-2 w-full mt-24'>
           <div className='flex flex-col gap-4'>
             <div className='text-5xl font-semibold'>
@@ -89,36 +97,52 @@ const page = () => {
             </Link>
           </div>
           <div className='flex flex-col items-stretch gap-8 text-2xl'>
-            <div>SaaS Product Development</div>
-            <Divider icons={false} />
-            <div>Professional Business Website</div>
-            <Divider icons={false} />
-            <div>Dynamic Blog and News Website</div>
-            <Divider icons={false} />
-            <div>E-commerce Website</div>
-            <Divider icons={false} />
-            <div>Digital Wedding Gallery Creation</div>
-            <Divider icons={false} />
-            <div>Website Revamp and Modernization</div>
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20, y: 20 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 1) * 0.1 }}
+              >
+                <div>{service.title}</div>
+                {index < services.length - 1 && (
+                  <Divider
+                    className='mt-8'
+                    icons={false}
+                  />
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
         <div className='w-full flex flex-col gap-4 items-center mt-24'>
-          <div className='flex flex-col isolate text-center'>
+          <motion.div
+            className='flex flex-col isolate text-center'
+            initial={{ opacity: 0, x: 20, y: 20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
             <div className='text-2xl font-bold '>Our Process</div>
             <div className='w-[500px] opacity-70  font-thin'>
               Our 4-step process delivers exceptional digital experiences that
               captivate your audience and drive results.
             </div>
-          </div>
+          </motion.div>
           <div className='w-full grid grid-cols-3 gap-2 relative mt-10'>
             {process.map((service, index) => (
               <div
                 className=''
                 style={{}}
               >
-                <div
+                <motion.div
                   className='sticky top-[20vh] bg-mutedWhite p-6 flex flex-col gap-4 text-mutedBlack'
                   style={{ marginTop: index * 500 + 'px' }}
+                  initial={{ opacity: 0, x: 20, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (index + 1) * 0.1 }}
                 >
                   <div className='absolute top-0 left-0 -translate-y-[90%] border-mutedBlack'>
                     <svg
@@ -136,20 +160,25 @@ const page = () => {
 
                   <div className='text-4xl font-bold'>{service.title}</div>
                   <div className='text-base'>{service.description}</div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
         </div>
         <div className='flex flex-col w-full gap-4 items-start mt-48'>
           <div className='flex justify-between items-end text-left w-full'>
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
               <div className='text-2xl font-bold '>They trust us</div>
               <div className='opacity-70  font-thin'>
                 Insights from the Community: Unfiltered Opinions and Honest
                 Reviews
               </div>
-            </div>
+            </motion.div>
             <Link
               href={'/projects'}
               className='px-4 py-3 border flex items-center gap-2 w-max group border-accent/50 hover:border-accent rounded-full transition-all'
@@ -163,7 +192,13 @@ const page = () => {
               </div>
             </Link>
           </div>
-          <div className='w-full bg-mutedWhite rounded-lg p-16 flex flex-col gap-4 items-center text-mutedBlack'>
+          <motion.div
+            className='w-full bg-mutedWhite rounded-lg p-16 flex flex-col gap-4 items-center text-mutedBlack'
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
             <div className='text-2xl font-semibold font-jetBrain'>
               "{projects[activeindex].review}"
             </div>
@@ -200,7 +235,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
         <div className='flex flex-col w-full text-center gap-4 items-center mt-48'>
           <div className='font-bold text-5xl'>
