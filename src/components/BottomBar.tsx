@@ -22,15 +22,15 @@ const BottomBar = () => {
     },
     {
       label: 'About_Us',
-      path: '/about-us',
+      path: 'about-us',
     },
     {
       label: 'projects',
-      path: '/projects',
+      path: 'projects',
     },
     {
       label: 'services',
-      path: '/services',
+      path: 'services',
     },
     // {
     //   label: 'Ping_Us',

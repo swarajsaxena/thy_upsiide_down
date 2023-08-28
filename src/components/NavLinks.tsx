@@ -20,7 +20,7 @@ const NavLink = ({
   const pathname = usePathname()
   return (
     <Link
-      href={path}
+      href={'/' + path}
       className={twMerge(
         `flex text-base hover:text-accent transition-all pointer-events-auto uppercase font-jetBrain font-normal`,
         path === pathname ? 'text-accent' : '',

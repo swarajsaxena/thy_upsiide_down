@@ -86,6 +86,8 @@ const Menu = () => {
                         {link}{' '}
                         <FiArrowRight className='-rotate-45 transition-all group-hover:translate-x-1 group-hover:-translate-y-1' />
                       </Link> */}
+
+                      {/* {console.log(link.toLowerCase().split(' ').join('-'))} */}
                       <NavLink
                         className='w-max'
                         path={link.toLowerCase().split(' ').join('-')}
