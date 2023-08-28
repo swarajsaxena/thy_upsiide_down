@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+import { AnimatePresence, cubicBezier, easeInOut, motion } from 'framer-motion'
 import Divider from '../Divider'
 import { ServicesI } from '@/app/services/page'
 const ServiceListing = ({
@@ -49,7 +49,7 @@ const ServiceListing = ({
           <React.Fragment key={index}>
             <motion.div
               id={`${service.title}`}
-              initial={{ opacity: 0, y: -80 }}
+              initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ease: 'easeInOut', delay: index * 0.5 }}
               className={`${
@@ -76,6 +76,24 @@ const ServiceListing = ({
                       }
                     >
                       {service.description}
+                      <h2 className='font-bold text-xl pt-10'>
+                        Features We Provide:
+                      </h2>
+                      <div className='py-10 px-4'>
+                        {service.features.map((features, index) => (
+                          <dl
+                            className='flex flex-col '
+                            key={index}
+                          >
+                            <dt className='text-lg font-semibold'>
+                              {index + 1 + ' '} {features.feature}
+                            </dt>
+                            <dd className='px-5 pt-2 pb-5 '>
+                              {features.value}
+                            </dd>
+                          </dl>
+                        ))}
+                      </div>
                     </span>
                     {!(service.title === activeService.title && accordian) && (
                       <span className='font-bold text-accent'>Read More</span>
@@ -87,11 +105,11 @@ const ServiceListing = ({
                 {service.title === activeService.title && accordian && (
                   <motion.div
                     initial={{ height: 0 }}
-                    animate={{ height: '20vh' }}
+                    animate={{ height: 'max-content' }}
                     exit={{ height: 0 }}
                     transition={{
-                      duration: 0.5,
-                      ease: cubicBezier(0.36, 0.88, 0.36, 0.88),
+                      duration: 0.5, // Adjust the duration as needed
+                      ease: 'easeInOut', // Use a valid easing function
                     }}
                     className=' pb-2 px-16 flex flex-col gap-4 overflow-y-hidden'
                   >
