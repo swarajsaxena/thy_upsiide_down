@@ -1,4 +1,3 @@
-import { ProjectsI } from '@/app/projects/page'
 import Divider from '../Divider'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -6,6 +5,7 @@ import { FiChevronsDown, FiPlus, FiPlusCircle, FiZoomIn } from 'react-icons/fi'
 import { useRef, useState } from 'react'
 import { useAwayClickListener } from '@/utils/useAwayClickListener'
 import { twMerge } from 'tailwind-merge'
+import { ProjectsI } from '@/data/projects'
 
 function PhotoViewer({
   activePhoto,

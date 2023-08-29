@@ -1,12 +1,8 @@
 'use client'
 import Divider from '@/components/Divider'
-import InfiniteCarasoul from '@/components/InfiniteCarasoul'
-import NextLink from '@/components/NextLink'
-import ServiceCard from '@/components/services/ServiceCard'
 import ServiceListing from '@/components/services/ServiceListing'
 import WhyChooseUs from '@/components/services/WhyChooseUs'
 import { ServicesI, services } from '@/data/services'
-import Image from 'next/image'
 import React, { useState } from 'react'
 
 const page = () => {

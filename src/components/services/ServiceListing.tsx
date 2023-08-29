@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { AnimatePresence, cubicBezier, easeInOut, motion } from 'framer-motion'
 import Divider from '../Divider'
-import { ServicesI } from '@/app/services/page'
+import { ServicesI } from '@/data/services'
+
 const ServiceListing = ({
   services,
   activeService,

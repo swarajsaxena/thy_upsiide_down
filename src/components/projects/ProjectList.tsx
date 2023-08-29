@@ -2,8 +2,8 @@ import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
 import React, { useState } from 'react'
 import Divider from '@/components/Divider'
 import { FiPlus } from 'react-icons/fi'
-import { ProjectsI } from '@/app/projects/page'
 import Image from 'next/image'
+import { ProjectsI } from '@/data/projects'
 
 export default function ProjectList({
   id,
