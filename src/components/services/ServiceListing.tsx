@@ -27,14 +27,14 @@ const ServiceListing = ({
     } else {
       // Open accordion and scroll to the element
       setActiveElement(title)
-      const element = document.getElementById(`${title}`)
+      const element = document.getElementById(title.split(' ').join('_'))
+
       if (element) {
+        console.log(element)
         element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
     }
   }
-  console.log(activeElement)
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -48,7 +48,7 @@ const ServiceListing = ({
         {services.map((service, index) => (
           <React.Fragment key={index}>
             <motion.div
-              id={`${service.title}`}
+              id={service.title.split(' ').join('_')}
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ease: 'easeInOut', delay: index * 0.5 }}
@@ -56,7 +56,7 @@ const ServiceListing = ({
                 service.title === activeService.title && accordian
                   ? 'bg-mutedWhite text-mutedBlack'
                   : 'hover:bg-mutedWhite/90 text-mutedWhite'
-              } rounded-md  hover:text-mutedBlack transition-all p-10  cursor-pointer`}
+              } rounded-md hover:text-mutedBlack transition-all p-10  cursor-pointer`}
               onClick={() => {
                 changeAccordian(service.title)
                 setActiveService(service)
@@ -76,24 +76,6 @@ const ServiceListing = ({
                       }
                     >
                       {service.description}
-                      <h2 className='font-bold text-xl pt-10'>
-                        Features We Provide:
-                      </h2>
-                      <div className='py-10 px-4'>
-                        {service.features.map((features, index) => (
-                          <dl
-                            className='flex flex-col '
-                            key={index}
-                          >
-                            <dt className='text-lg font-semibold'>
-                              {index + 1 + ' '} {features.feature}
-                            </dt>
-                            <dd className='px-5 pt-2 pb-5 '>
-                              {features.value}
-                            </dd>
-                          </dl>
-                        ))}
-                      </div>
                     </span>
                     {!(service.title === activeService.title && accordian) && (
                       <span className='font-bold text-accent'>Read More</span>
@@ -111,9 +93,22 @@ const ServiceListing = ({
                       duration: 0.5, // Adjust the duration as needed
                       ease: 'easeInOut', // Use a valid easing function
                     }}
-                    className=' pb-2 px-16 flex flex-col gap-4 overflow-y-hidden'
+                    className='pb-2 flex flex-col gap-4 mt-4 overflow-y-hidden'
                   >
-                    {/* <div className='text-mutedBlack'>{elem.description}</div> */}
+                    <h2 className='font-bold text-xl'>Features We Provide:</h2>
+                    <div className='flex flex-col gap-2 ml-2'>
+                      {service.features.map((features, index) => (
+                        <div
+                          className='flex flex-col '
+                          key={index}
+                        >
+                          <div className='text-lg font-semibold'>
+                            {index + 1 + ' '} {features.feature}
+                          </div>
+                          <dd className='px-4'>{features.value}</dd>
+                        </div>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -9,13 +9,13 @@ const Menu = () => {
   const [open, setOpen] = useState(false)
   const [hover, setHover] = useState(false)
   return (
-    <div className='relative'>
+    <div className='relative h-12'>
       <motion.div
         onClick={() => setOpen(!open)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        className={`absolute z-50 w-12 h-12 border rounded-full overflow-hidden transition-all duration-500 cursor-pointer group ${
-          open ? 'top-6 right-6' : 'top-0 right-0'
+        className={`absolute z-900 w-12 h-12 border rounded-full overflow-hidden transition-all duration-500 cursor-pointer group ${
+          open ? 'top-3 md:top-6 right-3 md:right-6' : 'top-0 right-0'
         } border-accent`}
       >
         <motion.div
@@ -69,14 +69,14 @@ const Menu = () => {
             animate={{ opacity: 1, top: 0, right: 0, scale: 1 }}
             exit={{ opacity: 0, top: 0, right: 0, scale: 0 }}
             transition={{ duration: 0.5 }}
-            className='absolute rounded-3xl text-mutedBlack origin-top-right w-max p-10 bg-mutedWhite/20'
+            className='z-800 absolute rounded-3xl text-mutedWhite origin-top-right w-max p-5 md:p-10 bg-mutedBlackFade'
           >
-            <div className='flex flex-col gap-6 mr-12 text-xl font-medium text-mutedWhite'>
+            <div className='flex flex-col gap-3 md:gap-6 mr-12 text-xl font-medium text-mutedWhite'>
               {['Home', 'Projects', 'Services', 'Contact Us'].map(
                 (link, index) => {
                   return (
                     <div
-                      className='min-w-[350px]'
+                      className='min-w-[150px] md:min-w-[350px]'
                       key={index}
                     >
                       {/* <Link
@@ -96,7 +96,7 @@ const Menu = () => {
 
                       {index < 3 && (
                         <Divider
-                          className='mt-5'
+                          className='mt-2.5 md:mt-5'
                           icons={false}
                         />
                       )}

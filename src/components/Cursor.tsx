@@ -32,13 +32,13 @@ const Cursor = () => {
   return (
     <motion.span
       transition={{ type: 'tween', ease: 'linear', duration: 0 }}
-      className={`fixed hidden md:inline top-0 left-0 z-50 rounded-full pointer-events-none transition-[height,width,border,background] duration-200 cursor-pointer w-12 h-12 bg-mutedWhite/20 ${
-        hidden ? 'hidden' : 'inline'
-      }`}
+      className={`fixed border border-mutedWhite/40 hidden md:inline top-0 left-0 z-999 rounded-full pointer-events-none transition-[height,width,border,background] duration-200 cursor-pointer w-12 h-12 bg-mutedWhite/20`}
       style={{
         x: mousePos.x,
         y: mousePos.y,
       }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: hidden ? 0 : 1 }}
     />
   )
 }
