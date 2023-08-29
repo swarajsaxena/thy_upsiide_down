@@ -19,9 +19,10 @@ import { services } from '@/data/services'
 
 const page = () => {
   const [activeindex, setActiveIndex] = useState(0)
-  const [width, setWidth] = useState(window && window.innerWidth)
+  const [width, setWidth] = useState(0)
 
   useEffect(() => {
+    setWidth(window.innerWidth)
     const handleResize = () => {
       setWidth(window.innerWidth)
     }
