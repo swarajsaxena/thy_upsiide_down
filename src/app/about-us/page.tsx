@@ -12,10 +12,10 @@ import {
 } from 'react-icons/fi'
 import Divider from '@/components/Divider'
 import { process } from '@/components/projects/TrustTheProcess'
-import { projects } from '../projects/page'
 import Menu from '@/components/aboutUs/Menu'
-import { services } from '../services/page'
 import { twMerge } from 'tailwind-merge'
+import { projects } from '@/data/projects'
+import { services } from '@/data/services'
 
 const page = () => {
   const [activeindex, setActiveIndex] = useState(0)
@@ -186,6 +186,7 @@ const page = () => {
             {process.map((service, index) => (
               <div
                 className='mx-4 md:mx-0'
+                key={index}
                 style={{ marginTop: width > 767 ? index * 500 + 'px' : '0px' }}
               >
                 <motion.div
