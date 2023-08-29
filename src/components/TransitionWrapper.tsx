@@ -18,7 +18,7 @@ const TransitionWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className='relative flex max-w-[100vw] flex-col justify-between max-h-screen h-screen w-screen md:overflow-y-hidden overflow-x-hidden bg-mutedBlack text-mutedWhite selection:bg-mutedWhite selection:text-black cursor-default md:max-h-screen overflow-y-hidden'>
       <AnimatePresence mode='wait'>
-        {/* <motion.div
+        <motion.div
           key={'transition'}
           initial={{ scaleX: 0 }}
           animate={{
@@ -27,10 +27,10 @@ const TransitionWrapper = ({ children }: { children: React.ReactNode }) => {
           }}
           transition={{ duration: 0.2 }}
           className='absolute top-0 h-full w-full bg-accent z-50'
-        /> */}
+        />
+        {/* {true && children} */}
       </AnimatePresence>
-      {/* <React.Fragment key={'children'}>{!active && children}</React.Fragment> */}
-      {true && children}
+      <React.Fragment key={'children'}>{!active && children}</React.Fragment>
     </div>
   )
 }
