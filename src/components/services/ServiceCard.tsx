@@ -1,7 +1,7 @@
 import React from 'react'
 import NextLink from '../NextLink'
-import { ServicesI } from '@/app/services/page'
 import Divider from '@/components/Divider'
+import { ServicesI } from '@/data/services'
 
 const ServiceCard = ({ element }: { element: ServicesI }) => {
   return <div>hello</div>
