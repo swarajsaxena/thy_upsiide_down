@@ -34,7 +34,7 @@ const WhyChooseUs = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.1 }}
-      className='hidden xl:flex flex-[0.35] flex-col px-4 gap-2'
+      className='xl:flex xl:flex-[0.35] md:flex-[.5] flex-col px-4 gap-2'
     >
       <div className='font-bold opacity-50 uppercase text-xl'>
         Why Choose Us

@@ -41,7 +41,7 @@ const ServiceListing = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className='flex-1 xl:flex-[0.7] flex md:px-4 gap-2 flex-col'
+      className=' xl:flex-[0.7] md:flex-[.5] flex md:px-4 gap-2 flex-col '
     >
       <div className='font-bold opacity-50 uppercase text-xl'>Services</div>
       <Divider icons={false} />
@@ -50,22 +50,25 @@ const ServiceListing = ({
           <React.Fragment key={index}>
             <motion.div
               id={service.title.split(' ').join('_')}
-              initial={{ opacity: 0, y: -50 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ease: 'easeInOut', delay: index * 0.5 }}
+              transition={{
+                delay: index * 0.4,
+                duration: 0.5,
+              }}
               className={`${
                 service.title === activeService.title && accordian
                   ? 'bg-mutedWhite text-mutedBlack'
                   : 'hover:bg-mutedWhite/90 text-mutedWhite'
-              } rounded-md hover:text-mutedBlack transition-all p-10  cursor-pointer`}
+              } rounded-md hover:text-mutedBlack  p-10   cursor-pointer`}
               onClick={() => {
                 changeAccordian(service.title)
                 setActiveService(service)
               }}
             >
               <div className={`relative group `}>
-                <div className='relative pointer-events-none  transition-all flex flex-col justify-between gap-2'>
-                  <div className='font-bold text-2xl flex items-center justify-between w-full'>
+                <div className='relative pointer-events-none transition-all flex flex-col justify-between gap-2'>
+                  <div className='font-bold lg:text-2xl md:text-xl  flex items-center justify-between w-full'>
                     {service.title}
                   </div>
                   <div>
@@ -73,7 +76,7 @@ const ServiceListing = ({
                       className={
                         service.title === activeService.title && accordian
                           ? ''
-                          : 'text-ellipsis line-clamp-4 md:line-clamp-3 lg:line-clamp-2'
+                          : 'text-ellipsis line-clamp-2 md:line-clamp-2 lg:line-clamp-2 '
                       }
                     >
                       {service.description}
