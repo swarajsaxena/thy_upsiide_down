@@ -27,7 +27,7 @@ const Header = () => {
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             transition={{ delay: 0.2 }}
-            className='italic font-bold h-max '
+            className='font-bold h-max'
           >
             Flipping Perspectives,
           </motion.div>
@@ -37,7 +37,7 @@ const Header = () => {
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             transition={{ delay: 0.3 }}
-            className='font-thin text-accent h-max font-jetBrain'
+            className='font-light italic text-accent h-max '
           >
             One Vision At A Time
           </motion.div>

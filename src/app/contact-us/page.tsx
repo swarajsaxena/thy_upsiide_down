@@ -72,7 +72,7 @@ const page = () => {
               className='h-[1px] w-full bg-mutedWhite'
             />
           </motion.div>
-          <motion.div className='overflow-y-hidden text-accent font-jetBrain italic'>
+          <motion.div className='overflow-y-hidden text-accent  italic'>
             <motion.div
               initial={{ y: '110%' }}
               animate={{ y: 0 }}
@@ -128,7 +128,7 @@ const page = () => {
           >
             thyupsiidedown@gmail.com
           </a>
-          <div className='flex flex-col justify-start gap-6 text-base text-mutedWhite font-jetBrain w-full md:max-w-lg'>
+          <div className='flex flex-col justify-start gap-6 text-base text-mutedWhite  w-full md:max-w-lg'>
             <input
               type='text'
               placeholder='Name'

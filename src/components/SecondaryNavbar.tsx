@@ -19,7 +19,7 @@ const SecondaryNavbar = () => {
       transition={{
         delay: 0.3,
       }}
-      className='w-full z-900 md:sticky md:top-0 md:left-0 h-max flex bg-mutedBlack justify-between p-4 items-center md:items-start'
+      className='w-full z-900 md:fixed md:top-0 md:left-0 h-max flex bg-mutedBlack justify-between p-4 items-center md:items-start'
     >
       <div className='hidden md:block max-w-[250px] relative aspect-[316/101] w-full'>
         <Image

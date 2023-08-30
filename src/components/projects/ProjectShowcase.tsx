@@ -90,7 +90,7 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
         >
           <span className='opacity-50'>ShowCase:</span>
           <span className='mr-auto'> {project.companyName}</span>
-          <span className='text-base flex items-center gap-1 font-normal font-jetBrain normal-case hover:text-accent transition-all cursor-pointer'>
+          <span className='text-base flex items-center gap-1 font-normal  normal-case hover:text-accent transition-all cursor-pointer'>
             Info
             <FiChevronsDown className='text-xl' />
           </span>

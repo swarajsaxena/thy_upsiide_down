@@ -30,12 +30,12 @@ const Services = () => {
         />
       </div>
       <span className='absolute bottom-0 h-20 w-full right-0 text-sm text-mutedWhite bg-gradient-to-t from-mutedBlack to-transparent to px-2 py-[0.25rem] flex items-center gap-2 z-10' />
-      <div className='flex flex-col justify-between flex-1 gap-2 overflow-y-scroll text-xl font-bold font-jetBrain scrollbar-none'>
+      <div className='flex flex-col justify-between flex-1 gap-2 overflow-y-scroll text-xl font-medium  scrollbar-none'>
         {services.map((ser, index) => (
           <React.Fragment key={index}>
-            <div className='flex gap-2 items-center uppercase'>
+            <div className='flex gap-2 items-center capitalize'>
               <FiChevronRight className='text-accent' />
-              <span>{ser}</span>
+              <span>{ser.toLowerCase()}</span>
             </div>
             {index < services.length - 1 && <Divider icons={false} />}
           </React.Fragment>

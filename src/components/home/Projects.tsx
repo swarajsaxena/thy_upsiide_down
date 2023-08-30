@@ -21,7 +21,7 @@ const Projects = () => {
         />
       </div>
       <div className='relative grid w-full h-full grid-cols-2 gap-3'>
-        {/* <div className='absolute top-0 left-0 z-20 flex items-center justify-center w-full h-full text-xl transition-all rounded-md opacity-0 font-jetBrain hover:bg-black/70 hover:backdrop-blur-sm hover:opacity-100'>
+        {/* <div className='absolute top-0 left-0 z-20 flex items-center justify-center w-full h-full text-xl transition-all rounded-md opacity-0  hover:bg-black/70 hover:backdrop-blur-sm hover:opacity-100'>
           See All Projects
         </div> */}
         <div className='grid grid-rows-2 gap-3 min-h-[200px]'>

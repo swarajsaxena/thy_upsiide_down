@@ -59,7 +59,7 @@ export default page
 
 function Landing() {
   return (
-    <div className='px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] md:h-[100vh] flex flex-col justify-end items-start font-semibold md:pb-10'>
+    <div className='px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] md:h-[100vh] flex flex-col justify-end items-start font-bold md:pb-10'>
       <div className=''>
         {'We Integrate Strategy, Creativity And Experience To Build Brands.'
           .split('')
@@ -194,7 +194,7 @@ function Services() {
             href={'/services'}
             className='px-4 py-3 border flex items-center gap-2 w-max group border-accent/50 hover:border-accent rounded-full transition-all'
           >
-            <div className='font-jetBrain group-hover:text-accent transition-all'>
+            <div className=' group-hover:text-accent transition-all'>
               Our Services
             </div>
             <div className='p-1 z-40 relative rounded-full overflow-hidden border border-accent/20 transition-all'>
@@ -368,7 +368,7 @@ function Reviews(props: {
           href={'/projects'}
           className='px-4 py-3 border flex items-center gap-2 w-max group border-accent/50 hover:border-accent rounded-full transition-all'
         >
-          <div className='font-jetBrain group-hover:text-accent transition-all'>
+          <div className=' group-hover:text-accent transition-all'>
             Our Projects
           </div>
           <div className='p-1 relative rounded-full overflow-hidden border border-accent/20 transition-all'>
@@ -394,7 +394,7 @@ function Reviews(props: {
           delay: 0.4,
         }}
       >
-        <div className='text-lg md:text-xl lg:text-2xl font-semibold font-jetBrain'>
+        <div className='text-lg md:text-xl lg:text-2xl font-semibold '>
           "{props.projects[props.activeindex].review}"
         </div>
         <div className='flex justify-between items-end w-full'>
@@ -454,9 +454,7 @@ function Contact() {
         href={'/contact-us'}
         className='px-4 py-3 border flex items-center gap-2 w-max group border-accent/50 hover:border-accent rounded-full transition-all'
       >
-        <div className='font-jetBrain group-hover:text-accent transition-all'>
-          Ping Us
-        </div>
+        <div className=' group-hover:text-accent transition-all'>Ping Us</div>
         <div className='p-1 relative rounded-full overflow-hidden border border-accent/20 transition-all'>
           <FiArrowRight className='z-20 group-hover:text-mutedBlack -rotate-45 ' />
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent scale-0 group-hover:scale-100 transition-all z-10' />

@@ -36,7 +36,7 @@ const About = () => {
           partners in reshaping the digital landscape.
         </p>
         <div className='w-full  hidden md:block'>
-          <div className='mb-2 font-bold uppercase text-accent font-jetBrain'>
+          <div className='mb-2 font-bold uppercase text-accent '>
             Our Story:
           </div>
           <p className='italic text-white'>
@@ -48,7 +48,7 @@ const About = () => {
           </p>
         </div>
         {/* <div className='w-full  hidden md:block'>
-          <div className='mb-2 font-bold uppercase text-accent font-jetBrain'>
+          <div className='mb-2 font-bold uppercase text-accent '>
             What We Do:
           </div>
           <p className='italic text-white'>
@@ -62,7 +62,7 @@ const About = () => {
           </p>
         </div>
         <div className='w-full  hidden md:block'>
-          <div className='mb-2 font-bold uppercase text-accent font-jetBrain'>
+          <div className='mb-2 font-bold uppercase text-accent '>
             Why Choose Us:
           </div>
           <div className='flex flex-wrap gap-2'>

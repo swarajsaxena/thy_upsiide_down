@@ -15,7 +15,8 @@ const config: Config = {
         accent: 'hsl(15, 100%, 60%)',
       },
       fontFamily: {
-        jetBrain: ['var(--font-jetbrains)'],
+        bauziet: ['var(--font-bauziet)'],
+        trap: ['var(--font-trap)'],
       },
       boxShadow: {
         inner: 'inset 0 0 10px #000',

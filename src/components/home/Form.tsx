@@ -53,7 +53,7 @@ const Form = ({
                 sint, debitis ratione quae animi recusandae?
               </div>
             </div>
-            <div className='flex flex-col justify-start gap-6 pb-10 text-base text-mutedWhite p-4 font-jetBrain min-w-[100%]'>
+            <div className='flex flex-col justify-start gap-6 pb-10 text-base text-mutedWhite p-4  min-w-[100%]'>
               <input
                 type='text'
                 placeholder='Name'

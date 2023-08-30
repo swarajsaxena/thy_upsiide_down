@@ -76,9 +76,7 @@ export default function ProjectList({
                     <div className='font-medium uppercase text-base opacity-50 hidden lg:block xl:block'>
                       {project.title}
                     </div>
-                    <span className='text-xs font-jetBrain'>
-                      {project.customerName}
-                    </span>
+                    <span className='text-xs '>{project.customerName}</span>
                   </div>
                   <div className='md:hidden relative p-1 text-accent'>
                     <div className='absolute border-accent w-2 h-2 top-0 left-0 border-l border-t' />
