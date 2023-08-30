@@ -32,7 +32,7 @@ const Cursor = () => {
   return (
     <motion.span
       transition={{ type: 'tween', ease: 'linear', duration: 0 }}
-      className={`fixed border border-mutedWhite/40 hidden md:inline top-0 left-0 z-999 rounded-full pointer-events-none transition-[height,width,border,background] duration-200 cursor-pointer w-6 h-6 bg-mutedWhite/80`}
+      className={`fixed border border-mutedWhite/40 hidden md:inline top-0 left-0 z-999 rounded-full pointer-events-none transition-[height,width,border,background] duration-200 cursor-pointer w-6 h-6 bg-accent`}
       style={{
         x: mousePos.x,
         y: mousePos.y,
