@@ -13,11 +13,16 @@ const About = () => {
       transition={{ delay: 0.5 }}
       className='relative flex flex-col items-stretch flex-[1.2] gap-2 md:px-4 overflow-hidden '
     >
-      <div className='text-xl flex justify-between items-end w-full '>
+      <div className='text-xl flex justify-between items-end w-full gap-2'>
         <div className='font-bold opacity-50 uppercase'>About Us</div>
         <NextLink
           path='/about-us'
           label='Read More'
+          className='ml-auto'
+        />
+        <NextLink
+          path='/contact-us'
+          label='Ping Us'
         />
       </div>
       <Divider icons={false} />
@@ -42,7 +47,7 @@ const About = () => {
             and bring a fresh perspective to every project we undertake.
           </p>
         </div>
-        <div className='w-full  hidden md:block'>
+        {/* <div className='w-full  hidden md:block'>
           <div className='mb-2 font-bold uppercase text-accent font-jetBrain'>
             What We Do:
           </div>
@@ -68,7 +73,7 @@ const About = () => {
             <span>Dedication to,</span> Excellence
             <span>Endless Possibilities</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   )

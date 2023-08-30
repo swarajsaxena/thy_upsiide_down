@@ -7,15 +7,18 @@ import { motion } from 'framer-motion'
 import NavLink from './NavLinks'
 import { FiMail, FiPhoneCall } from 'react-icons/fi'
 import Form from './home/Form'
+import Link from 'next/link'
 
 const NavBar = () => {
   const pathname = usePathname()
 
-  if (pathname === '/' || pathname === '/about-us') {
+  if (
+    pathname === '/' ||
+    pathname === '/about-us' ||
+    pathname === '/contact-us'
+  ) {
     return null
   }
-
-  const [formActive, setFormActive] = useState(false)
 
   return (
     <nav className='flex w-full flex-col p-4 items-stretch justify-between'>
@@ -69,15 +72,10 @@ const NavBar = () => {
           className='max-h-[40px]'
           alt='logo'
         />
-        <button
-          onClick={() => setFormActive(true)}
-          className='border border-accent font-jetBrain font-bold px-3 py-2 text-lg rounded-lg ml-auto hover:bg-accent hover:text-mutedBlack transition-all capitalize'
-        >
-          Contact
-        </button>
-        <Form
-          formActive={formActive}
-          setFormActive={setFormActive}
+        <NavLink
+          path='contact-us'
+          label='Ping Us'
+          className='ml-auto'
         />
       </div>
       <Divider />

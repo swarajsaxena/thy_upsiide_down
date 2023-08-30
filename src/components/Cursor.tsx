@@ -18,8 +18,8 @@ const Cursor = () => {
   useEffect(() => {
     const mouseMov = (e: MouseEvent) => {
       setHidden(false)
-      mousePos.x.set(e.clientX - 24)
-      mousePos.y.set(e.clientY - 24)
+      mousePos.x.set(e.clientX - 12)
+      mousePos.y.set(e.clientY - 12)
     }
 
     window.addEventListener('mousemove', mouseMov)
@@ -32,7 +32,7 @@ const Cursor = () => {
   return (
     <motion.span
       transition={{ type: 'tween', ease: 'linear', duration: 0 }}
-      className={`fixed border border-mutedWhite/40 hidden md:inline top-0 left-0 z-999 rounded-full pointer-events-none transition-[height,width,border,background] duration-200 cursor-pointer w-12 h-12 bg-mutedWhite/20`}
+      className={`fixed border border-mutedWhite/40 hidden md:inline top-0 left-0 z-999 rounded-full pointer-events-none transition-[height,width,border,background] duration-200 cursor-pointer w-6 h-6 bg-mutedWhite/80`}
       style={{
         x: mousePos.x,
         y: mousePos.y,

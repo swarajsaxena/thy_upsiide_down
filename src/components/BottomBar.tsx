@@ -11,7 +11,11 @@ const BottomBar = () => {
   const pathname = usePathname()
 
   // Check if the current pathname is "/"
-  if (pathname === '/' || pathname === '/about-us') {
+  if (
+    pathname === '/' ||
+    pathname === '/about-us' ||
+    pathname === '/contact-us'
+  ) {
     return null // Don't render anything when pathname is "/"
   }
 

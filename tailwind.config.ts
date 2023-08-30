@@ -12,7 +12,7 @@ const config: Config = {
         mutedBlack: 'hsl(216, 20%, 7%)',
         mutedBlackFade: 'hsl(210, 4%, 40%)',
         mutedWhite: 'hsl(216, 100%, 98%)',
-        accent: 'hsl(35, 100%, 60%)',
+        accent: 'hsl(15, 100%, 60%)',
       },
       fontFamily: {
         jetBrain: ['var(--font-jetbrains)'],

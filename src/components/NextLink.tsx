@@ -4,19 +4,26 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { FiArrowUpRight } from 'react-icons/fi'
 import { motion } from 'framer-motion'
+import { twMerge } from 'tailwind-merge'
 
 const NextLink = ({
   path = '',
   label = 'link',
+  className = '',
 }: {
   path: string
   label: string
+  className?: string
 }) => {
   const [active, setActive] = useState(false)
   return (
     <Link
       href={path}
-      className='flex text-base font-light text-accent uppercase font-jetBrain'
+      className={twMerge(
+        `flex text-base hover:text-accent transition-all pointer-events-auto uppercase font-jetBrain font-normal`,
+        className
+        // 'border'
+      )}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
     >
@@ -28,7 +35,11 @@ const NextLink = ({
           className='absolute bg-accent h-[2px] bottom-0 left-0'
         />
       </div>
-      <FiArrowUpRight className='mt-auto mb-[0.17rem]' />
+      <FiArrowUpRight
+        className={`mt-auto mb-[0.17rem] transition-all ${
+          active ? 'translate-x-[2px] -translate-y-[2px]' : ''
+        }`}
+      />
     </Link>
   )
 }
