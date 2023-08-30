@@ -60,7 +60,20 @@ export default page
 function Landing() {
   return (
     <div className='px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] md:h-[100vh] flex flex-col justify-end items-start font-bold md:pb-10'>
-      <div className=''>
+      <div className='relative p-4'>
+        <Divider className='absolute top-0 left-0 w-full' />
+        <Divider
+          orientation='vertical'
+          className='absolute top-0 h-full py-8 left-[10px]'
+          icons={false}
+        />
+
+        <Divider
+          orientation='vertical'
+          className='absolute top-0 right-[10px] h-full py-8'
+          icons={false}
+        />
+        <Divider className='absolute bottom-0 left-0 w-full' />
         {'We Integrate Strategy, Creativity And Experience To Build Brands.'
           .split('')
           .map((str, index) => (

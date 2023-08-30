@@ -4,12 +4,13 @@ import React from 'react'
 import { cubicBezier, motion } from 'framer-motion'
 import Image from 'next/image'
 import Menu from '@/components/aboutUs/Menu'
+import Divider from '@/components/Divider'
 
 const page = () => {
   const ease = cubicBezier(0.36, 0.88, 0.18, 0.87)
   return (
     <div className='flex flex-col items-center justify-start overflow-y-scroll scrollbar-none min-h-screen'>
-      <div className='w-full lg:w-full flex flex-col pb-[1vh] items-start justify-center text-lef t'>
+      <div className='w-full lg:w-full flex flex-col pb-[1vh] items-center justify-center text-lef t'>
         <motion.div
           initial={{
             opacity: 0,
@@ -36,80 +37,62 @@ const page = () => {
           </div>
           <Menu />
         </motion.div>
-        <div className='flex flex-col text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[148px] font-bold w-full'>
-          <motion.div className='overflow-y-hidden hover:bg-mutedWhite hover:text-mutedBlack transition-all duration-200'>
-            <motion.div
-              initial={{ y: '110%' }}
-              animate={{ y: 0 }}
-              // transition={{ delay: 0.1 }}
-              transition={{ duration: 1, ease: ease }}
-            >
-              Let's Create
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, ease }}
-              className='h-[1px] w-full bg-mutedWhite'
+        <div className='max-w-[1000px] px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
+          <div className='relative p-4'>
+            <Divider className='absolute top-0 left-0 w-full' />
+            <Divider
+              orientation='vertical'
+              className='absolute top-0 h-full py-8 left-[10px]'
+              icons={false}
             />
-          </motion.div>
-          <motion.div className='overflow-y-hidden hover:bg-mutedWhite hover:text-mutedBlack transition-all duration-200'>
-            <motion.div
-              initial={{ y: '110%' }}
-              animate={{ y: 0 }}
-              // transition={{ delay: 0.15 }}
-              transition={{ duration: 1, ease: ease }}
-            >
-              Your Unique
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, ease }}
-              className='h-[1px] w-full bg-mutedWhite'
+
+            <Divider
+              orientation='vertical'
+              className='absolute top-0 right-[10px] h-full py-8'
+              icons={false}
             />
-          </motion.div>
-          <motion.div className='overflow-y-hidden hover:bg-mutedWhite hover:text-mutedBlack transition-all duration-200 text-accent  italic'>
-            <motion.div
-              initial={{ y: '110%' }}
-              animate={{ y: 0 }}
-              // transition={{ delay: 0.2 }}
-              transition={{ duration: 1, ease: ease }}
-            >
-              Web Presence
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, ease }}
-              className='h-[1px] w-full bg-mutedWhite'
-            />
-          </motion.div>
-          <motion.div className='overflow-y-hidden hover:bg-mutedWhite hover:text-mutedBlack transition-all duration-200'>
-            <motion.div
-              initial={{ y: '110%' }}
-              animate={{ y: 0 }}
-              // transition={{ delay: 0.25 }}
-              transition={{ duration: 1, ease: ease }}
-              className='flex justify-between items-center'
-            >
-              Together.
-              <img
-                src={'/arrowDown.svg'}
-                alt='arrowDown'
-                className='h-6 mr-3 sm:h-8 sm:mr-4 md:h-10 md:mr-5 lg:h-14 lg:mr-7 xl:h-20 xl:mr-10'
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, ease }}
-              className='h-[1px] w-full bg-mutedWhite'
-            />
-          </motion.div>
+            <Divider className='absolute bottom-0 left-0 w-full' />
+            {'Get in Touch for Tailored Web Design and Development Solutions.'
+              .split('')
+              .map((str, index) => (
+                <motion.span
+                  className='tracking-normal'
+                  initial={{
+                    opacity: 0,
+                    y: -40,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: (index + 1) * 0.03,
+                    },
+                  }}
+                  key={index}
+                >
+                  {str}
+                </motion.span>
+              ))}
+          </div>
+          <motion.span
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              delay: 65 * 0.03,
+              repeat: Infinity,
+              duration: 2,
+            }}
+            className='text-base font-thin'
+          >
+            Scroll Down
+          </motion.span>
         </div>
         <motion.div
-          className='flex flex-col justify-center items-center w-full p-4 py-16 md:p-8 md:py-28'
+          className='flex flex-col justify-center md:gap-20 items-center w-full p-4 py-16 md:p-8 md:py-28'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           // transition={{ delay: 0.1 }}
@@ -119,12 +102,7 @@ const page = () => {
             Let's start the conversation today and make your digital dreams a
             reality!
           </div>
-          <a
-            className='border-b-2 border-accent font-semibold text-xl mb-20'
-            href='mailto:thyupsiidedown@gmail.com'
-          >
-            thyupsiidedown@gmail.com
-          </a>
+
           <div className='flex flex-col justify-start gap-6 text-base text-mutedWhite  w-full md:max-w-lg'>
             <input
               type='text'
@@ -150,6 +128,12 @@ const page = () => {
           </div>
         </motion.div>
         <div className='px-4 lg:px-0 flex flex-col w-full text-center gap-4 items-center opacity-70 py-4'>
+          <a
+            className='border-b-2 border-accent font-semibold text-xl mb-20'
+            href='mailto:thyupsiidedown@gmail.com'
+          >
+            thyupsiidedown@gmail.com
+          </a>
           2023 • Thy Upsiide Down • All Rights Reserved
         </div>
       </div>
