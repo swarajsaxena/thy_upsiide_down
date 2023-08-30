@@ -15,7 +15,7 @@ const bauziet = localFont({
     { path: '../../public/fonts/BauzietNormBold.ttf', weight: '700' },
     { path: '../../public/fonts/BauzietNormExtraBold.ttf', weight: '800' },
     {
-      path: '../../public/fonts/BauzietNormlightItalic.ttf',
+      path: '../../public/fonts/BauzietNormLightItalic.ttf',
       weight: '300',
       style: 'italic',
     },
