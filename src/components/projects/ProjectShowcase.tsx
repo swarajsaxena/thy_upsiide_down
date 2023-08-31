@@ -23,6 +23,7 @@ function PhotoViewer({
     setactiveViewer(false)
   }
   useAwayClickListener(ref, handleAwayClick)
+
   return (
     <AnimatePresence>
       {activeViewer && (
@@ -72,6 +73,7 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
     setactivePhoto(src)
     setactiveViewer(true)
   }
+  const target = useRef<HTMLDivElement>(null)
 
   return (
     <div className='flex-1 hidden md:flex px-4 gap-2 flex-col flex-grow-1'>
@@ -90,7 +92,12 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
         >
           <span className='opacity-50'>ShowCase:</span>
           <span className='mr-auto'> {project.companyName}</span>
-          <span className='text-base flex items-center gap-1 font-normal  normal-case hover:text-accent transition-all cursor-pointer'>
+          <span
+            onClick={() => {
+              target.current?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            className='text-base flex items-center gap-1 font-normal  normal-case hover:text-accent transition-all cursor-pointer'
+          >
             Info
             <FiChevronsDown className='text-xl' />
           </span>
@@ -118,7 +125,10 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
               )
           }
         })}
-        <div className='flex flex-col gap-2'>
+        <div
+          ref={target}
+          className='flex flex-col gap-2'
+        >
           <div className='text-lg font-bold'>
             Review: {project.customerName} ⭐⭐⭐⭐⭐
           </div>

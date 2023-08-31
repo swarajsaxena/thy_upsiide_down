@@ -34,23 +34,4 @@ const page = () => {
   )
 }
 
-const Review = ({
-  review,
-  stars,
-}: {
-  review: string | undefined
-  stars: number | undefined
-}) => {
-  return (
-    <div>
-      <div>{review}</div>
-      <div>Stars: {stars}</div>
-    </div>
-  )
-}
-
-const Text = ({ text }: { text: string | undefined }) => {
-  return <div>{text}</div>
-}
-
 export default page
