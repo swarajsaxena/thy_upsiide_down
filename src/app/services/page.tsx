@@ -11,8 +11,8 @@ const page = () => {
   const [activeService, setActiveService] = useState<ServicesI>(services[0])
 
   return (
-    <motion.div className='mx-4 mb-0 md:flex-grow flex md:overflow-y-hidden overflow-scroll scrollbar-none flex-col-reverse md:flex-row'>
-      <WhyChooseUs />
+    <motion.div className='mx-4 mb-0 md:flex-grow flex md:overflow-y-hidden overflow-scroll scrollbar-none flex-col md:flex-row'>
+      <WhyChooseUs className={'hidden md:flex'} />
       <Divider
         icons={false}
         orientation='vertical'
@@ -22,6 +22,7 @@ const page = () => {
         activeService={activeService}
         setActiveService={setActiveService}
       />
+      <WhyChooseUs className={' xl:hidden md:hidden'} />
     </motion.div>
   )
 }

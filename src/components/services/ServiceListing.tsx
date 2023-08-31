@@ -41,7 +41,7 @@ const ServiceListing = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className=' xl:flex-[0.7] md:flex-[.5] flex md:px-4 gap-2 flex-col '
+      className=' xl:flex-[0.7] md:flex-[.5] flex md:px-4   gap-2 flex-col '
     >
       <div className='font-bold opacity-50 uppercase text-xl'>Services</div>
       <Divider icons={false} />
@@ -50,8 +50,8 @@ const ServiceListing = ({
           <React.Fragment key={index}>
             <motion.div
               id={service.title.split(' ').join('_')}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 delay: index * 0.2,
                 duration: 0.5,
@@ -60,7 +60,7 @@ const ServiceListing = ({
                 service.title === activeService.title && accordian
                   ? 'bg-mutedWhite text-mutedBlack'
                   : 'hover:bg-mutedWhite/90 text-mutedWhite'
-              } rounded-md hover:text-mutedBlack  p-10   cursor-pointer`}
+              } rounded-md hover:text-mutedBlack  sm:p-6 p-4 md:p-8 lg:p-10 cursor-pointer`}
               onClick={() => {
                 changeAccordian(service.title)
                 setActiveService(service)
@@ -68,7 +68,7 @@ const ServiceListing = ({
             >
               <div className={`relative group `}>
                 <div className='relative pointer-events-none transition-all flex flex-col justify-between gap-2'>
-                  <div className='font-bold lg:text-2xl md:text-xl  flex items-center justify-between w-full'>
+                  <div className='font-bold lg:text-2xl md:text-xl text-lg  flex items-center justify-between w-full'>
                     {service.title}
                   </div>
                   <div>
@@ -76,7 +76,7 @@ const ServiceListing = ({
                       className={
                         service.title === activeService.title && accordian
                           ? ''
-                          : 'text-ellipsis line-clamp-2 md:line-clamp-2 lg:line-clamp-2 '
+                          : 'text-ellipsis line-clamp-2 md:line-clamp-2 text-base   lg:line-clamp-2 '
                       }
                     >
                       {service.description}

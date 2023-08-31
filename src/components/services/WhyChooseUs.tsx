@@ -1,7 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Divider from '../Divider'
-const WhyChooseUs = () => {
+import { twMerge } from 'tailwind-merge'
+const WhyChooseUs = ({ className = '' }: { className?: string }) => {
   const services = [
     {
       title: 'Experience and Expertise',
@@ -34,7 +35,10 @@ const WhyChooseUs = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.1 }}
-      className='xl:flex xl:flex-[0.35] md:flex-[.5] flex-col px-4 gap-2'
+      className={twMerge(
+        'xl:flex xl:flex-[0.35] md:flex-[.5] flex-col px-4 gap-2',
+        className
+      )}
     >
       <div className='font-bold opacity-50 uppercase text-xl'>
         Why Choose Us
