@@ -95,14 +95,13 @@ const Menu = () => {
             />
             <Divider className='absolute bottom-0 left-0 w-full' />
             <div className='flex flex-col gap-3 md:gap-6 text-xl font-medium text-mutedWhite'>
-              {['', 'Projects', 'About Us', 'Services', 'Contact Us'].map(
-                (link, index) => {
-                  return (
-                    <div
-                      className='min-w-[150px] md:min-w-[350px]'
-                      key={index}
-                    >
-                      {/* <Link
+              {['', 'Projects', 'Services', 'Contact Us'].map((link, index) => {
+                return (
+                  <div
+                    className='min-w-[150px] md:min-w-[350px]'
+                    key={index}
+                  >
+                    {/* <Link
                         href={link.toLowerCase().split(' ').join('-')}
                         className='min-w-[350px] py-2 flex items-center gap-1 group'
                       >
@@ -110,23 +109,22 @@ const Menu = () => {
                         <FiArrowRight className='-rotate-45 transition-all group-hover:translate-x-1 group-hover:-translate-y-1' />
                       </Link> */}
 
-                      {/* {console.log(link.toLowerCase().split(' ').join('-'))} */}
-                      <NavLink
-                        className='w-max'
-                        path={link.toLowerCase().split(' ').join('-')}
-                        label={link === '' ? 'Home' : link}
-                      />
+                    {/* {console.log(link.toLowerCase().split(' ').join('-'))} */}
+                    <NavLink
+                      className='w-max'
+                      path={link.toLowerCase().split(' ').join('-')}
+                      label={link === '' ? 'Home' : link}
+                    />
 
-                      {index < 4 && (
-                        <Divider
-                          className='mt-2.5 md:mt-5'
-                          icons={false}
-                        />
-                      )}
-                    </div>
-                  )
-                }
-              )}
+                    {index < 4 && (
+                      <Divider
+                        className='mt-2.5 md:mt-5'
+                        icons={false}
+                      />
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </motion.div>
         )}
