@@ -110,8 +110,13 @@ const page = () => {
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
             />
             <input
-              type='text'
+              type='email'
               placeholder='Email'
+              className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
+            />
+            <input
+              type='text'
+              placeholder='Subject'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
             />
             <textarea
