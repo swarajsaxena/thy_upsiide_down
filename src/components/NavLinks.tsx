@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 
 const NavLink = ({
+  onClick = () => null,
   path = '',
   label = 'link',
   className = '',
@@ -15,6 +16,7 @@ const NavLink = ({
   path?: string
   label?: string
   className?: string
+  onClick?: () => void
 }) => {
   const [active, setActive] = useState(false)
   const pathname = usePathname()
@@ -28,6 +30,9 @@ const NavLink = ({
         // 'border'
       )}
       target={path.includes('mail') ? '_blank' : '_self'}
+      onClick={() => {
+        onClick()
+      }}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
     >

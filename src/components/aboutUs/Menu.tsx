@@ -110,6 +110,7 @@ const Menu = () => {
                     key={index}
                   >
                     <NavLink
+                      onClick={() => setOpen(false)}
                       className='text-center w-full md:w-max'
                       path={link.toLowerCase().split(' ').join('-')}
                       label={link === '' ? 'Home' : link}
@@ -122,6 +123,7 @@ const Menu = () => {
                 )
               })}
               <NavLink
+                onClick={() => setOpen(false)}
                 className='text-center w-full md:w-max'
                 path={'mailto:thyupsiidedown@gmail.com'}
                 label={'Mail'}
