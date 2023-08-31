@@ -35,7 +35,7 @@ const NavBar = () => {
 
   return (
     <nav className='flex flex-col justify-center '>
-      <div className='flex w-full flex-row p-4 pb-2 items-center justify-between'>
+      <div className='flex w-full flex-row p-4 pb-2 md:pb-1 items-center justify-between'>
         <div className='p-1 flex gap-2 items-center '>
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
