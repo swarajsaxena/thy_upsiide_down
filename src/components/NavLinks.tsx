@@ -20,13 +20,14 @@ const NavLink = ({
   const pathname = usePathname()
   return (
     <Link
-      href={'/' + path}
+      href={path.includes('mail') ? path : '/' + path}
       className={twMerge(
-        `flex text-base hover:text-accent transition-all pointer-events-auto uppercase font-medium`,
+        `flex text-base hover:text-accent justify-center transition-all pointer-events-auto uppercase font-medium`,
         path === pathname ? 'text-accent' : '',
         className
         // 'border'
       )}
+      target={path.includes('mail') ? '_blank' : '_self'}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
     >

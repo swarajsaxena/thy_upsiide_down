@@ -76,7 +76,7 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
   const target = useRef<HTMLDivElement>(null)
 
   return (
-    <div className='flex-1 hidden md:flex px-4 gap-2 flex-col flex-grow-1'>
+    <div className='flex-1 hidden md:flex md:px-2 gap-2 flex-col flex-grow-1'>
       <PhotoViewer
         activePhoto={activePhoto}
         activeViewer={activeViewer}
@@ -104,7 +104,7 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
         </motion.div>
       </div>
       <Divider icons={false} />
-      <div className='overflow-y-scroll scrollbar-none pt-2'>
+      <div className='overflow-y-scroll scrollbar-none pt-2 pb-4'>
         {project.images.map((image, index) => {
           switch (image.type) {
             case 'imgOneCol':

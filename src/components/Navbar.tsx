@@ -5,18 +5,31 @@ import React, { useState } from 'react'
 import Divider from './Divider'
 import { motion } from 'framer-motion'
 import NavLink from './NavLinks'
-import { FiMail, FiPhoneCall } from 'react-icons/fi'
-import Form from './home/Form'
-import Link from 'next/link'
+import { FiMail } from 'react-icons/fi'
+import Menu from './aboutUs/Menu'
 
 const NavBar = () => {
   const pathname = usePathname()
+  const navLinks = [
+    {
+      label: 'home',
+      path: '/',
+    },
+    {
+      label: 'projects',
+      path: 'projects',
+    },
+    {
+      label: 'services',
+      path: 'services',
+    },
+    {
+      label: 'Ping_Us',
+      path: 'contact-us',
+    },
+  ]
 
-  if (
-    pathname === '/' ||
-    pathname === '/about-us' ||
-    pathname === '/contact-us'
-  ) {
+  if (pathname === '/s' || pathname === '/about-us') {
     return null
   }
 
@@ -72,11 +85,32 @@ const NavBar = () => {
           className='max-h-[40px]'
           alt='logo'
         />
-        <NavLink
-          path='contact-us'
-          label='Ping Us'
-          className='ml-auto'
-        />
+        <div className='p-1 justify-end w-full flex gap-4 items-center py-2'>
+          {navLinks.map((link, i) => {
+            const n = navLinks.length
+            return (
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  // delay: 0.3 * (i < Math.floor(n / 2) ? i + 1 : n - i),
+                  delay: 0.1 * i,
+                }}
+                key={i}
+                className='hidden lg:block'
+              >
+                <NavLink
+                  label={link.label}
+                  path={link.path}
+                />
+              </motion.div>
+            )
+          })}
+          <div className='hidden lg:block p-2 cursor-pointer rounded-full hover:bg-accent/20 bg-white/20 hover:text-accent'>
+            <FiMail />
+          </div>
+          <Menu />
+        </div>
       </div>
       <Divider />
     </nav>

@@ -11,7 +11,7 @@ const page = () => {
   return (
     <div className='flex flex-col items-center justify-start overflow-y-scroll scrollbar-none min-h-screen'>
       <div className='w-full lg:w-full flex flex-col pb-[1vh] items-center justify-center text-left'>
-        <motion.div
+        {/* <motion.div
           initial={{
             opacity: 0,
             // y: 40,
@@ -36,7 +36,7 @@ const page = () => {
             />
           </div>
           <Menu />
-        </motion.div>
+        </motion.div> */}
         <div className='max-w-[1000px] px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
           <div className='relative p-4'>
             <Divider className='absolute top-0 left-0 w-full' />

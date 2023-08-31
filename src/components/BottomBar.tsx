@@ -5,7 +5,6 @@ import React from 'react'
 import Divider from './Divider'
 import { motion } from 'framer-motion'
 import NavLink from './NavLinks'
-import { FiMail, FiPhoneCall } from 'react-icons/fi'
 
 const BottomBar = () => {
   const pathname = usePathname()
@@ -39,9 +38,16 @@ const BottomBar = () => {
   ]
 
   return (
-    <footer className='flex w-full flex-col p-4 items-stretch justify-between'>
+    <footer className='flex w-full flex-col items-stretch justify-between pb-4'>
       <Divider />
-      <div className='p-1 justify-around w-full flex gap-2 items-center py-2'>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className='px-4 lg:px-0 flex flex-col w-full text-center gap-4 items-center opacity-70'
+      >
+        2023 • Thy Upsiide Down • All Rights Reserved
+      </motion.div>
+      {/* <div className='p-1 justify-around w-full flex gap-2 items-center py-2'>
         {navLinks.map((link, i) => {
           const n = navLinks.length
           return (
@@ -60,15 +66,7 @@ const BottomBar = () => {
             </motion.div>
           )
         })}
-        <div className='flex gap-2'>
-          <div className='p-3 text-lg cursor-pointer rounded-full hover:bg-accent/20 bg-white/20 hover:text-accent ml-auto'>
-            <FiMail />
-          </div>
-          <div className='p-3 text-lg cursor-pointer rounded-full hover:bg-accent/20 bg-white/20 hover:text-accent'>
-            <FiPhoneCall />
-          </div>
-        </div>
-      </div>
+      </div> */}
     </footer>
   )
 }

@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         mutedBlack: 'hsl(216, 20%, 7%)',
-        mutedBlackFade: 'hsl(210, 4%, 40%)',
+        mutedBlackFade: 'hsl(210, 20%, 10%)',
         mutedWhite: 'hsl(216, 100%, 98%)',
         accent: 'hsl(15, 100%, 60%)',
       },

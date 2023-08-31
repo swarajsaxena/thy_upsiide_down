@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react'
 import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
 import Divider from '../Divider'
 import Link from 'next/link'
-import { FiArrowRight } from 'react-icons/fi'
+import { FiArrowRight, FiPlus } from 'react-icons/fi'
 import NavLink from '../NavLinks'
 import { useAwayClickListener } from '@/utils/useAwayClickListener'
+import { twMerge } from 'tailwind-merge'
 
 const Menu = () => {
   const [open, setOpen] = useState(false)
@@ -15,18 +16,16 @@ const Menu = () => {
   useAwayClickListener(ref, () => setOpen(false))
   return (
     <div
-      className='relative h-12'
+      className='lg:hidden h-8 w-8'
       ref={ref}
     >
       <motion.div
         onClick={() => setOpen(!open)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        className={`absolute z-900  border rounded-sm overflow-hidden transition-all duration-500 cursor-pointer group ${
-          open
-            ? 'top-3 md:top-6 right-3 md:right-[20px] w-8 h-8'
-            : 'top-0 right-0 w-12 h-12'
-        } border-accent`}
+        className={twMerge(
+          `absolute z-100 w-8 h-8 border rounded-sm overflow-hidden transition-all duration-500 cursor-pointer group border-accent`
+        )}
       >
         <motion.div
           className={`absolute top-1/2 left-1/2  w-full h-full rounded-sm bg-accent`}
@@ -75,57 +74,73 @@ const Menu = () => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, top: 0, right: 0, scale: 0 }}
-            animate={{ opacity: 1, top: 0, right: 0, scale: 1 }}
-            exit={{ opacity: 0, top: 0, right: 0, scale: 0 }}
+            initial={{ opacity: 0, top: 0, right: 0, scaleX: 0 }}
+            animate={{ opacity: 1, top: 0, right: 0, scaleX: 1 }}
+            exit={{ opacity: 0, top: 0, right: 0, scaleX: 0 }}
             transition={{ duration: 0.5 }}
-            className='z-800 absolute text-mutedWhite origin-top-right w-max p-5 md:p-10 bg-mutedBlack'
+            className='z-800 absolute text-mutedWhite flex flex-col gap-4 origin-right w-[100vw] md:w-[50vw] lg:w-[40vw] xl:w-[30vw] h-[100vh] px-10 py-7 bg-mutedBlackFade'
           >
-            <Divider className='absolute top-0 left-0 w-full' />
             <Divider
               orientation='vertical'
-              className='absolute top-0 h-full py-8 left-[10px]'
-              icons={false}
+              className='absolute flex top-0 left-2 h-full py-4'
+              // icons={false}
+            />
+            <Divider
+              orientation='vertical'
+              className='absolute flex top-0 right-2 h-full py-4'
+              // icons={false}
+            />
+            {/* 
+            <Divider
+            orientation='vertical'
+            className='absolute top-0 h-full py-8 left-[10px]'
+            icons={false}
             />
 
-            <Divider
-              orientation='vertical'
-              className='absolute top-0 right-[10px] h-full py-8'
-              icons={false}
-            />
-            <Divider className='absolute bottom-0 left-0 w-full' />
-            <div className='flex flex-col gap-3 md:gap-6 text-xl font-medium text-mutedWhite'>
+            <Divider className='absolute bottom-0 left-0 w-full' /> */}
+            <div className='flex flex-col justify-center items-stretch md:items-start md:justify-start gap-3 md:gap-6 font-medium text-mutedWhite h-full'>
+              <Divider
+                className='w-full'
+                icons={false}
+              />
               {['', 'Projects', 'Services', 'Contact Us'].map((link, index) => {
                 return (
                   <div
-                    className='min-w-[150px] md:min-w-[350px]'
+                    className='w-full flex flex-col'
                     key={index}
                   >
-                    {/* <Link
-                        href={link.toLowerCase().split(' ').join('-')}
-                        className='min-w-[350px] py-2 flex items-center gap-1 group'
-                      >
-                        {link}{' '}
-                        <FiArrowRight className='-rotate-45 transition-all group-hover:translate-x-1 group-hover:-translate-y-1' />
-                      </Link> */}
-
-                    {/* {console.log(link.toLowerCase().split(' ').join('-'))} */}
                     <NavLink
-                      className='w-max'
+                      className='text-center w-full md:w-max'
                       path={link.toLowerCase().split(' ').join('-')}
                       label={link === '' ? 'Home' : link}
                     />
-
-                    {index < 4 && (
-                      <Divider
-                        className='mt-2.5 md:mt-5'
-                        icons={false}
-                      />
-                    )}
+                    <Divider
+                      className='mt-2.5 md:mt-5 w-full'
+                      icons={false}
+                    />
                   </div>
                 )
               })}
+              <NavLink
+                className='text-center w-full md:w-max'
+                path={'mailto:thyupsiidedown@gmail.com'}
+                label={'Mail'}
+              />
+              <Divider
+                className='w-full'
+                icons={false}
+              />
             </div>
+            <button
+              onClick={() => setOpen(!open)}
+              className='flex items-center justify-center font-medium w-full bg-accent py-2 rounded-sm text-center mb-1'
+            >
+              <FiPlus className='rotate-45 text-xl' /> Close
+            </button>
+            <Divider
+              className='w-full'
+              icons={false}
+            />
           </motion.div>
         )}
       </AnimatePresence>

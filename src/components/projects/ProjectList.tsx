@@ -31,7 +31,7 @@ export default function ProjectList({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className='flex-1 md:flex-[0.5] flex md:px-4 gap-2 flex-col'
+      className='flex-1 md:flex-[0.5] flex md:px-2 gap-2 flex-col'
     >
       <div className='font-bold opacity-50 uppercase text-xl'>Projects</div>
       <Divider icons={false} />

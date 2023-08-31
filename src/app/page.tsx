@@ -36,7 +36,7 @@ const page = () => {
   return (
     <div className='flex flex-col items-center justify-start overflow-y-scroll scrollbar-none'>
       <div className='w-full lg:w-[1000px] flex flex-col gap-20 md:gap-24 lg:gap-48 pb-[1vh] items-center justify-center text-left'>
-        <SecondaryNavbar></SecondaryNavbar>
+        {/* <SecondaryNavbar></SecondaryNavbar> */}
         <Landing></Landing>
         <LandingImage></LandingImage>
         <Services></Services>
@@ -59,7 +59,7 @@ export default page
 
 function Landing() {
   return (
-    <div className='px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] md:h-[100vh] flex flex-col justify-end items-start font-bold md:pb-10'>
+    <div className='px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
       <div className='relative p-4'>
         <Divider className='absolute top-0 left-0 w-full' />
         <Divider
