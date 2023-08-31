@@ -10,7 +10,7 @@ const page = () => {
   const ease = cubicBezier(0.36, 0.88, 0.18, 0.87)
   return (
     <div className='flex flex-col items-center justify-start overflow-y-scroll scrollbar-none min-h-screen'>
-      <div className='w-full lg:w-full flex flex-col pb-[1vh] items-center justify-center text-lef t'>
+      <div className='w-full lg:w-full flex flex-col pb-[1vh] items-center justify-center text-left'>
         <motion.div
           initial={{
             opacity: 0,
