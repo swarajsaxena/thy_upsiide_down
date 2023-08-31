@@ -25,10 +25,6 @@ const BottomBar = () => {
       path: '/',
     },
     {
-      label: 'About_Us',
-      path: 'about-us',
-    },
-    {
       label: 'projects',
       path: 'projects',
     },
@@ -36,10 +32,10 @@ const BottomBar = () => {
       label: 'services',
       path: 'services',
     },
-    // {
-    //   label: 'Ping_Us',
-    //   path: '/ping-us',
-    // },
+    {
+      label: 'Ping_Us',
+      path: '/contact-us',
+    },
   ]
 
   return (
