@@ -1,12 +1,33 @@
 'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { cubicBezier, motion } from 'framer-motion'
+import emailjs from 'emailjs-com'
 import Image from 'next/image'
 import Menu from '@/components/aboutUs/Menu'
 import Divider from '@/components/Divider'
 
 const page = () => {
+  const form = useRef()
+  const sendEmail = (e: Event) => {
+    emailjs
+      .sendForm(
+        'service_6kasb4v',
+        'template_y42fe5u',
+        form.current,
+        'CphuE9D-S6wxeOk3Y'
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
+
+    e.preventDefault()
+  }
   const ease = cubicBezier(0.36, 0.88, 0.18, 0.87)
   return (
     <div className='flex flex-col items-center justify-start overflow-y-scroll scrollbar-none min-h-screen'>
@@ -103,34 +124,41 @@ const page = () => {
             reality!
           </div>
 
-          <div className='flex flex-col justify-start gap-6 text-base text-mutedWhite  w-full md:max-w-lg'>
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className='flex flex-col justify-start gap-6 text-base text-mutedWhite  w-full md:max-w-lg'
+          >
             <input
               type='text'
               placeholder='Name'
+              name='from_name'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
             />
             <input
               type='email'
+              name='reply_to'
               placeholder='Email'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
             />
             <input
               type='text'
+              name='subject'
               placeholder='Subject'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
             />
             <textarea
               placeholder='Your Thoughts..'
+              name='message'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10 min-h-[75px]'
               rows={4}
             />
-            <button
+            <input
               className='w-full p-3 md:p-4 rounded-md bg-accent hover:bg-accent/50 text-mutedBlack'
               type='submit'
-            >
-              Send
-            </button>
-          </div>
+              value='Send'
+            />
+          </form>
         </motion.div>
         <div className='px-4 lg:px-0 flex flex-col w-full text-center gap-4 items-center opacity-70 py-4'>
           <a

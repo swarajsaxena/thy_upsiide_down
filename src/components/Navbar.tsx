@@ -24,7 +24,7 @@ const NavBar = () => {
       path: 'services',
     },
     {
-      label: 'Ping_Us',
+      label: 'Contact Us',
       path: 'contact-us',
     },
   ]
