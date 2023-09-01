@@ -47,13 +47,13 @@ const TrustTheProcess = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.1 }}
-      className='flex-1 md:flex-[0.5] hidden xl:flex flex-col md:px-2 gap-2'
+      className='flex-1 md:flex-[0.5] hidden xl:flex flex-col md:px-2 gap-2 '
     >
       <div className='font-bold opacity-50 uppercase text-xl'>
         Trust The Process
       </div>
       <Divider icons={false} />
-      <div className='flex flex-col gap-4 mt-2'>
+      <div className='flex flex-col gap-4 mt-2 overflow-y-scroll scrollbar-none'>
         {process.map((service, index) => (
           <div
             key={index}
