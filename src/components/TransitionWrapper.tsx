@@ -16,21 +16,24 @@ const TransitionWrapper = ({ children }: { children: React.ReactNode }) => {
   }, [pathname])
 
   return (
-    <div className='relative flex max-w-[100vw] flex-col justify-between max-h-screen h-screen w-screen md:overflow-y-hidden overflow-x-hidden bg-mutedBlack text-mutedWhite selection:bg-mutedWhite selection:text-black cursor-default md:max-h-screen overflow-y-hidden'>
-      {/* <AnimatePresence mode='wait'>
+    <div className='relative flex max-w-[100vw] flex-col justify-between max-h-screen h-screen w-screen md:overflow-y-hidden overflow-x-hidden bg-mutedBlack text-mutedWhite selection:bg-accent selection:text-black cursor-default md:max-h-screen overflow-y-hidden'>
+      <AnimatePresence mode='wait'>
         <motion.div
           key={'transition'}
-          initial={{ scaleX: 0 }}
+          initial={{ scaleX: 0, opacity: 0 }}
           animate={{
             scaleX: active ? 1 : 0,
             transformOrigin: active ? 'left' : 'right',
+            opacity: active ? 1 : 0,
           }}
           transition={{ duration: 0.2 }}
-          className='absolute top-0 h-full w-full bg-accent z-50'
-        />
-      </AnimatePresence> */}
-      {true && children}
-      {/* <React.Fragment key={'children'}>{!active && children}</React.Fragment> */}
+          className='absolute top-0 h-full w-full flex justify-center items-center font-black text-3xl text-mutedBlack bg-accent z-50'
+        >
+          Thy Upsiide Down
+        </motion.div>
+      </AnimatePresence>
+      {/* {true && children} */}
+      <React.Fragment key={'children'}>{!active && children}</React.Fragment>
     </div>
   )
 }

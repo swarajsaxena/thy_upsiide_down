@@ -8,13 +8,13 @@ import Menu from '@/components/aboutUs/Menu'
 import Divider from '@/components/Divider'
 
 const page = () => {
-  const form = useRef()
-  const sendEmail = (e: Event) => {
+  const form = useRef(null)
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     emailjs
       .sendForm(
         'service_6kasb4v',
         'template_y42fe5u',
-        form.current,
+        form.current as unknown as HTMLFormElement,
         'CphuE9D-S6wxeOk3Y'
       )
       .then(
@@ -58,7 +58,7 @@ const page = () => {
           </div>
           <Menu />
         </motion.div> */}
-        <div className='max-w-[1000px] px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
+        <div className='max-w-[1000px] px-4 lg:px-0 text-5xl md:text-7xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
           <div className='relative p-4'>
             <Divider className='absolute top-0 left-0 w-full' />
             <Divider
