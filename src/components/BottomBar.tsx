@@ -43,7 +43,7 @@ const BottomBar = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className='px-4 lg:px-0 flex flex-col w-full text-center gap-4 items-center opacity-70'
+        className='px-4 lg:px-0 flex flex-col w-full text-center gap-4 items-center opacity-50 text-sm md:text-base'
       >
         2023 • Thy Upsiide Down • All Rights Reserved
       </motion.div>
