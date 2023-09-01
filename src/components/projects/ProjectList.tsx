@@ -73,10 +73,10 @@ export default function ProjectList({
                     >
                       {project.companyName}{' '}
                     </div>
-                    <div className='font-medium uppercase text-base opacity-50 hidden lg:block xl:block'>
+                    <div className='font-medium capitalize text-sm opacity-50 hidden lg:block xl:block'>
                       {project.title}
                     </div>
-                    <span className='text-xs '>{project.customerName}</span>
+                    {/* <span className='text-xs '>{project.customerName}</span> */}
                   </div>
                   <div className='md:hidden relative p-1 text-accent'>
                     <div className='absolute border-accent w-2 h-2 top-0 left-0 border-l border-t' />

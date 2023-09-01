@@ -35,7 +35,7 @@ export const projects: ProjectsI[] = [
   {
     title: 'Web design and development',
     companyName: 'Utilities Save',
-    customerName: 'someone',
+    customerName: 'Dipesh Mathur',
     review:
       'Revolutionized our online experience! The energy-saving solutions are now beautifully showcased on the revamped website. The new look and feel are not only visually appealing but also user-friendly, making it easier for users to explore the new products. A seamless blend of design and functionality!',
     id: 'uti',
@@ -49,7 +49,7 @@ export const projects: ProjectsI[] = [
   {
     title: 'Web design and development',
     companyName: 'Srimitra India',
-    customerName: 'Someone',
+    customerName: 'Reshma',
     review:
       'Absolutely thrilled with the end result! Our collaborative effort has yielded a stunning website for the orphan portal. The captivating colors and exquisite illustrations are spot on. Kudos to the team for their dedication and creativity. Looking forward to entrusting more projects. A definite asset on our list!',
     id: 'sri',
