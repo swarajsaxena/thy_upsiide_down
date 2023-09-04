@@ -59,7 +59,7 @@ export default page
 
 function Landing() {
   return (
-    <div className='px-4 lg:px-0 text-6xl md:text-7xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
+    <div className='px-4 lg:px-0 text-5xl md:text-6xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
       <div className='relative p-4'>
         <Divider className='absolute top-0 left-0 w-full' />
         <Divider
