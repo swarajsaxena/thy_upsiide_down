@@ -132,6 +132,16 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
           <div className='text-lg font-bold'>
             Review: {project.customerName} ⭐⭐⭐⭐⭐
           </div>
+          <span className='font-semibold pt-2'>
+            Website :{' '}
+            <a
+              className='font-medium hover:text-accent'
+              href={project.website}
+              target='_blank'
+            >
+              {project.website}
+            </a>
+          </span>
           <div>{project.review}</div>
         </div>
       </div>

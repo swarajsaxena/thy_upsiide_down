@@ -14,26 +14,12 @@ const ServiceListing = ({
 }) => {
   const [accordian, setAccordian] = useState(false)
   const [click, setclick] = useState(false)
-  const [activeElement, setActiveElement] = useState<string | null>(null)
 
   const changeAccordian = (title: string) => {
     if (accordian === false) setAccordian(true)
     if (title === activeService.title) {
       setclick(!click)
       setAccordian(!accordian)
-    }
-    if (!click) {
-      // Toggle accordion state (close)
-      setActiveElement(null)
-    } else {
-      // Open accordion and scroll to the element
-      setActiveElement(title)
-      const element = document.getElementById(title.split(' ').join('_'))
-
-      if (element) {
-        console.log(element)
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
     }
   }
   return (
@@ -106,7 +92,7 @@ const ServiceListing = ({
                           className='flex flex-col '
                           key={index}
                         >
-                          <div className='text-lg font-semibold'>
+                          <div className='text-base sm:text-lg font-semibold '>
                             {index + 1 + ' '} {features.feature}
                           </div>
                           <dd className='px-4'>{features.value}</dd>

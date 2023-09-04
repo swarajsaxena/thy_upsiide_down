@@ -1,15 +1,23 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { cubicBezier, motion } from 'framer-motion'
 import emailjs from 'emailjs-com'
 import Image from 'next/image'
 import Menu from '@/components/aboutUs/Menu'
 import Divider from '@/components/Divider'
+import Notification from '@/components/Notification'
 
 const page = () => {
+  const [name, setname] = useState('')
+  const [email, setemail] = useState('')
+  const [message, setmessage] = useState('')
+  const [subject, setsubject] = useState('')
+  const [send, setsend] = useState('Send')
   const form = useRef(null)
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setsend('Sending')
     emailjs
       .sendForm(
         'service_6kasb4v',
@@ -20,44 +28,28 @@ const page = () => {
       .then(
         (result) => {
           console.log(result.text)
+          setname('')
+          setemail('')
+          setmessage('')
+          setsubject('')
+          setsend('Sent')
+          setInterval(() => {
+            setsend('Send')
+          }, 1000)
         },
         (error) => {
+          setsend('Failed To Send')
+          setTimeout(() => {
+            setsend('Send')
+          }, 500)
           console.log(error.text)
         }
       )
-
-    e.preventDefault()
   }
   const ease = cubicBezier(0.36, 0.88, 0.18, 0.87)
   return (
     <div className='flex flex-col items-center justify-start overflow-y-scroll scrollbar-none min-h-screen'>
       <div className='w-full lg:w-full flex flex-col pb-[1vh] items-center justify-center text-left'>
-        {/* <motion.div
-          initial={{
-            opacity: 0,
-            // y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            // y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.3,
-          }}
-          className='w-full border-b z-900 md:sticky md:top-0 md:left-0 h-max flex bg-mutedBlack justify-between p-4 items-center'
-        >
-          <div className='max-w-[250px] relative aspect-[404/59] w-full'>
-            <Image
-              src={'/logo/logo_long.svg'}
-              alt='logo_about.svg'
-              fill
-            />
-          </div>
-          <Menu />
-        </motion.div> */}
         <div className='max-w-[1000px] px-4 lg:px-0 text-5xl md:text-7xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
           <div className='relative p-4'>
             <Divider className='absolute top-0 left-0 w-full' />
@@ -134,29 +126,49 @@ const page = () => {
               placeholder='Name'
               name='from_name'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
+              value={name}
+              onChange={(e) => {
+                setname(e.target.value)
+              }}
             />
             <input
               type='email'
               name='reply_to'
               placeholder='Email'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
+              value={email}
+              onChange={(e) => {
+                setemail(e.target.value)
+              }}
             />
             <input
               type='text'
               name='subject'
               placeholder='Subject'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10'
+              value={subject}
+              onChange={(e) => {
+                setsubject(e.target.value)
+              }}
             />
             <textarea
               placeholder='Your Thoughts..'
               name='message'
               className='h-full px-3 py-1 md:px-4 md:py-2 rounded-md outline-none bg-mutedWhite/10 min-h-[75px]'
               rows={4}
+              value={message}
+              onChange={(e) => {
+                setmessage(e.target.value)
+              }}
             />
             <input
-              className='w-full p-3 md:p-4 rounded-md bg-accent hover:bg-accent/50 text-mutedBlack'
+              className={`w-full p-3 md:p-4 rounded-md  text-mutedBlack ${
+                send === 'Sending' || send === 'Sent'
+                  ? 'bg-accent/50 cursor-not-allowed'
+                  : 'bg-accent hover:bg-accent/50 cursor-pointer'
+              }`}
               type='submit'
-              value='Send'
+              value={send}
             />
           </form>
         </motion.div>
