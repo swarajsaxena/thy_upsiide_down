@@ -163,6 +163,7 @@ const OneColumnImage = ({
       transition={{ delay: 0.4 }}
       className='relative aspect-[16/9] group cursor-pointer w-full rounded-lg overflow-hidden mb-4'
       onClick={() => toggleState(src[0])}
+      key={src[0]}
     >
       <ZoomButton />
       <Image
@@ -199,6 +200,7 @@ const TwoColumnImage = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
         onClick={() => toggleState(src[0])}
+        key={src[0]}
         className='relative aspect-[16/9] cursor-pointer w-full rounded-lg overflow-hidden'
       >
         <ZoomButton />
@@ -215,6 +217,7 @@ const TwoColumnImage = ({
         transition={{ delay: 0.4 }}
         onClick={() => toggleState(src[1])}
         className='relative aspect-[16/9] cursor-pointer w-full rounded-lg overflow-hidden'
+        key={src[1]}
       >
         <ZoomButton />
         <Image
