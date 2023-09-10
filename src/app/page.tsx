@@ -59,7 +59,35 @@ export default page
 
 function Landing() {
   return (
-    <div className='px-4 lg:px-0 text-5xl md:text-6xl lg:text-8xl h-[80vh] flex flex-col justify-end items-start font-bold md:pb-10'>
+    <div className='px-4 lg:px-0 text-5xl md:text-6xl lg:text-8xl h-[90vh] flex flex-col justify-evenly items-start font-bold md:pb-10'>
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        transition={{ delay: 0.03 }}
+        className='w-full px-2'
+      >
+        <img
+          src='/logo/logo_1.svg'
+          className='md:hidden h-14'
+        />
+        <img
+          src='/logo/logo_2.svg'
+          className='md:hidden h-20 -mt-5'
+        />
+        <img
+          src='/logo/logo_3.svg'
+          className='md:hidden h-20 -mt-5'
+        />
+        <img
+          src='/logo/logo_long.svg'
+          alt=''
+          className='h-24 lg:h-28 hidden md:block'
+        />
+      </motion.div>
       <div className='relative p-4'>
         <Divider className='absolute top-0 left-0 w-full' />
         <Divider

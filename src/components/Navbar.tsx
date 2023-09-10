@@ -79,14 +79,16 @@ const NavBar = () => {
               className='max-w-[30px] w-full eye'
               alt='logo'
             />
-            <motion.img
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              src='/logo/logo_long.svg'
-              className='max-h-[40px]'
-              alt='logo'
-            />
+            {pathname !== '/' && (
+              <motion.img
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                src='/logo/logo_long.svg'
+                className='max-h-[40px]'
+                alt='logo'
+              />
+            )}
           </div>
         </Link>
         <div className='p-1 justify-end w-full flex gap-4 items-center '>
