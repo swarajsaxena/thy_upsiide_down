@@ -75,6 +75,10 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
   }
   const target = useRef<HTMLDivElement>(null)
 
+  const imageArray = (images: any[]) => {
+    return project.type === 'case_study' ? images.slice(1) : images
+  }
+
   return (
     <div className='flex-1 hidden md:flex md:px-2 gap-2 flex-col flex-grow-1'>
       <PhotoViewer
@@ -92,20 +96,30 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
         >
           <span className='opacity-50'>ShowCase:</span>
           <span className='mr-auto'> {project.companyName}</span>
-          <span
-            onClick={() => {
-              target.current?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className='text-base flex items-center gap-1 font-normal  normal-case hover:text-accent transition-all cursor-pointer'
-          >
-            Info
-            <FiChevronsDown className='text-xl' />
-          </span>
         </motion.div>
       </div>
       <Divider icons={false} />
       <div className='overflow-y-scroll scrollbar-none pt-2 pb-4'>
-        {project.images.map((image, index) => {
+        {project.type === 'case_study' && (
+          <OneColumnImage
+            src={project?.images[0]?.src || ['']}
+            toggleState={toggleState}
+          />
+        )}
+        {project.type === 'case_study' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            key={project.id}
+            ref={target}
+            className='flex flex-col gap-2 mb-4'
+          >
+            <div className='text-lg font-bold'>Info:</div>
+            <div>{project.description}</div>
+          </motion.div>
+        )}
+        {imageArray(project.images).map((image, index) => {
           switch (image.type) {
             case 'imgOneCol':
               return (
@@ -125,25 +139,27 @@ export default function ProjectShowcase({ project }: { project: ProjectsI }) {
               )
           }
         })}
-        <div
-          ref={target}
-          className='flex flex-col gap-2'
-        >
-          <div className='text-lg font-bold'>
-            Review: {project.customerName} ⭐⭐⭐⭐⭐
+        {project.type === 'project' && (
+          <div
+            ref={target}
+            className='flex flex-col gap-2'
+          >
+            <div className='text-lg font-bold'>
+              Review: {project.customerName} ⭐⭐⭐⭐⭐
+            </div>
+            <span className='font-semibold pt-2'>
+              Website :{' '}
+              <a
+                className='font-medium hover:text-accent'
+                href={project.website}
+                target='_blank'
+              >
+                {project.website}
+              </a>
+            </span>
+            <div>{project.review}</div>
           </div>
-          <span className='font-semibold pt-2'>
-            Website :{' '}
-            <a
-              className='font-medium hover:text-accent'
-              href={project.website}
-              target='_blank'
-            >
-              {project.website}
-            </a>
-          </span>
-          <div>{project.review}</div>
-        </div>
+        )}
       </div>
     </div>
   )
@@ -161,7 +177,7 @@ const OneColumnImage = ({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4 }}
-      className='relative aspect-[16/9] group cursor-pointer w-full rounded-lg overflow-hidden mb-4'
+      className='relative aspect-[16/9] group cursor-pointer w-full rounded-lg overflow-hidden mb-4 bg-mutedBlackFade'
       onClick={() => toggleState(src[0])}
       key={src[0]}
     >
@@ -201,7 +217,7 @@ const TwoColumnImage = ({
         transition={{ delay: 0.4 }}
         onClick={() => toggleState(src[0])}
         key={src[0]}
-        className='relative aspect-[16/9] cursor-pointer w-full rounded-lg overflow-hidden'
+        className='relative aspect-[16/9] cursor-pointer w-full rounded-lg overflow-hidden bg-mutedBlackFade'
       >
         <ZoomButton />
         <Image
@@ -216,7 +232,7 @@ const TwoColumnImage = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
         onClick={() => toggleState(src[1])}
-        className='relative aspect-[16/9] cursor-pointer w-full rounded-lg overflow-hidden'
+        className='relative aspect-[16/9] cursor-pointer w-full rounded-lg overflow-hidden bg-mutedBlackFade'
         key={src[1]}
       >
         <ZoomButton />

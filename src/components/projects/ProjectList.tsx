@@ -33,7 +33,9 @@ export default function ProjectList({
       transition={{ delay: 0.2 }}
       className='flex-1 md:flex-[0.5] flex md:px-2 gap-2 flex-col'
     >
-      <div className='font-bold opacity-50 uppercase text-xl'>Projects</div>
+      <div className='font-bold opacity-50 uppercase text-xl'>
+        Projects & Case Studies
+      </div>
       <Divider icons={false} />
       <div className='flex flex-col gap-4 pt-2 md:overflow-y-scroll scrollbar-none mt-2'>
         {projects.map((project, index) => (
@@ -42,7 +44,7 @@ export default function ProjectList({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: index * 0.2 + 0.2 }}
-              className='flex flex-col gap-2 relative  cursor-pointer '
+              className='flex flex-col gap-2 relative md:cursor-pointer '
             >
               <div
                 className='flex gap-2 group'
@@ -114,12 +116,29 @@ export default function ProjectList({
                           className='object-cover'
                         />
                       </div>
-                      <div className='flex flex-col gap-2'>
-                        <div className='text-lg font-bold'>
-                          Review: {project.customerName} ⭐⭐⭐⭐⭐
+                      {project.type === 'project' ? (
+                        <div className='flex flex-col gap-2'>
+                          <div className='text-lg font-bold'>
+                            Review: {project.customerName} ⭐⭐⭐⭐⭐
+                          </div>
+                          <div>{project.review}</div>
                         </div>
-                        <div>{project.review}</div>
-                      </div>
+                      ) : (
+                        <div>Info: {project.description}</div>
+                      )}
+                      {project.images
+                        .flatMap((image) => image.src)
+                        .slice(1)
+                        .map((src) => (
+                          <div className='relative w-full aspect-[16/9] rounded-lg overflow-hidden'>
+                            <Image
+                              src={src || ''}
+                              alt={src || ''}
+                              fill
+                              className='object-cover'
+                            />
+                          </div>
+                        ))}
                     </motion.div>
                   )}
                 </div>
